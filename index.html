@@ -206,69 +206,75 @@
         }
         
         /* Grid de Doenças - CORRIGIDO */
-        .diseases-grid-mobile-scroll {
+        .diseases-grid {
+            /* Padrão para mobile: rolagem horizontal */
             display: flex;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch; /* Para rolagem suave em iOS */
             gap: 20px;
+            margin-bottom: 32px;
             padding-bottom: 10px; /* Espaço para a barra de rolagem */
         }
 
-        .diseases-grid-mobile-scroll .disease-card {
+        .diseases-grid .disease-card {
             flex: 0 0 auto; /* Impede que os cards encolham */
             width: 250px; /* Largura fixa para cada card na rolagem horizontal */
         }
 
         @media (min-width: 768px) {
-            .diseases-grid-mobile-scroll {
+            .diseases-grid {
+                /* Para desktop: volta ao grid de 2 colunas */
                 display: grid;
                 overflow-x: visible;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
                 padding-bottom: 0;
             }
 
-            .diseases-grid-mobile-scroll .disease-card {
+            .diseases-grid .disease-card {
                 width: auto;
             }
         }
 
         @media (min-width: 1024px) {
-            .diseases-grid-mobile-scroll {
+            .diseases-grid {
+                /* Para desktop maior: grid de 3 colunas */
                 grid-template-columns: repeat(3, 1fr);
             }
         }
         
         /* Seção de Autoridade - Galinhas Saudáveis - CORRIGIDO */
-        .authority-grid-mobile-scroll {
+        .authority-grid {
+            /* Padrão para mobile: rolagem horizontal */
             display: flex;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             gap: 20px;
+            margin-bottom: 32px;
             padding-bottom: 10px;
         }
 
-        .authority-grid-mobile-scroll .authority-card {
+        .authority-grid .authority-card {
             flex: 0 0 auto;
             width: 300px; /* Largura fixa para cada card na rolagem horizontal */
         }
 
         @media (min-width: 768px) {
-            .authority-grid-mobile-scroll {
+            .authority-grid {
+                /* Para desktop: volta ao grid de 2 colunas */
                 display: grid;
                 overflow-x: visible;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
                 padding-bottom: 0;
             }
 
-            .authority-grid-mobile-scroll .authority-card {
+            .authority-grid .authority-card {
                 width: auto;
             }
         }
 
         @media (min-width: 1024px) {
-            .authority-grid-mobile-scroll {
+            .authority-grid {
+                /* Para desktop maior: grid de 3 colunas */
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -695,7 +701,7 @@
             <p class="subtitle">SEU GUIA DIRETO E EFICIENTE DE IDENTIFICAR E TRATAR AS DOENÇAS NA SUAS AVES, SEM RODEIOS, SO INFORMAÇAO DE QUALIDADE </p>
 
             <!-- Grid de Doenças -->
-            <div class="diseases-grid diseases-grid-mobile-scroll">
+            <div class="diseases-grid">
                 <div class="disease-card">
                     <img src="assets/Coccidiose.png" alt="COCCIDIOSE">
                     <div class="disease-label">COCCIDIOSE</div>
@@ -774,7 +780,7 @@
             <h2>Veja a Qualidade da Minha Criação</h2>
             <p class="section-subtitle">Essas são algumas das minhas aves saudáveis e produtivas</p>
             
-            <div class="authority-grid authority-grid-mobile-scroll">
+            <div class="authority-grid">
                 <div class="authority-card">
                     <img src="assets/Galinhasaudavel1.jpeg" alt="Galinha Saudável 1">
                 </div>
