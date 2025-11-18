@@ -715,41 +715,7 @@
                 flex-shrink: 0;
             }
 
-        /* Timer */
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
 
-        .timer-box {
-            background: #0f172a;
-            border-radius: 8px;
-            padding: 16px;
-            min-width: 80px;
-            text-align: center;
-        }
-
-        .timer-value {
-            font-size: 32px;
-            font-weight: 900;
-            color: #f97316;
-        }
-
-        .timer-label {
-            font-size: 12px;
-            color: #9ca3af;
-            margin-top: 8px;
-        }
-
-        .timer-separator {
-            font-size: 32px;
-            font-weight: 900;
-            color: #f97316;
-            align-self: center;
-        }
 
         /* Footer */
         footer {
@@ -832,7 +798,7 @@
             <div class="header-right">
                 <div class="price-info">
                     <div class="label">POR TEMPO LIMITADO</div>
-                    <div class="value">R$ 74,90</div>
+                    <div class="value">R$ 84,90</div>
                 </div>
                 <a href="https://pay.kiwify.com.br/t4bvM9I" target="_blank" class="btn">COMPRAR</a>
             </div>
@@ -1032,29 +998,9 @@
             <div style="background: linear-gradient(to right, rgba(249, 115, 22, 0.2), rgba(239, 68, 68, 0.2)); border: 2px solid #f97316; border-radius: 8px; padding: 32px;">
                 <p style="font-size: 14px; color: #9ca3af; margin-bottom: 16px;">⏰ PREÇO DE LANÇAMENTO POR TEMPO LIMITADO</p>
 
-                <div class="timer" id="timer">
-                    <div class="timer-box">
-                        <div class="timer-value" id="days">02</div>
-                        <div class="timer-label">DIAS</div>
-                    </div>
-                    <div class="timer-separator">:</div>
-                    <div class="timer-box">
-                        <div class="timer-value" id="hours">12</div>
-                        <div class="timer-label">HORAS</div>
-                    </div>
-                    <div class="timer-separator">:</div>
-                    <div class="timer-box">
-                        <div class="timer-value" id="minutes">21</div>
-                        <div class="timer-label">MIN</div>
-                    </div>
-                    <div class="timer-separator">:</div>
-                    <div class="timer-box">
-                        <div class="timer-value" id="seconds">31</div>
-                        <div class="timer-label">SEG</div>
-                    </div>
-                </div>
 
-                <div class="price-big">R$ 74,90</div>
+
+                <div class="price-big">R$ 84,90</div>
 
                 <a href="https://pay.kiwify.com.br/t4bvM9I" target="_blank" class="btn cta-primary">QUERO GARANTIR MEU ACESSO AGORA</a>
             </div>
@@ -1189,36 +1135,7 @@
         }
 
 
-        // Timer de Escassez
-        function updateTimer() {
-            let days = parseInt(document.getElementById('days').textContent);
-            let hours = parseInt(document.getElementById('hours').textContent);
-            let minutes = parseInt(document.getElementById('minutes').textContent);
-            let seconds = parseInt(document.getElementById('seconds').textContent);
 
-            if (seconds > 0) {
-                seconds--;
-            } else if (minutes > 0) {
-                minutes--;
-                seconds = 59;
-            } else if (hours > 0) {
-                hours--;
-                minutes = 59;
-                seconds = 59;
-            } else if (days > 0) {
-                days--;
-                hours = 23;
-                minutes = 59;
-                seconds = 59;
-            }
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
-
-        setInterval(updateTimer, 1000);
 
         // Inicializar carrossel e timer quando o DOM estiver pronto
         document.addEventListener('DOMContentLoaded', () => {
