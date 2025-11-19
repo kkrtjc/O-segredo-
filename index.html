@@ -36,7 +36,7 @@
             }
 
         .container {
-            max-width: 1024px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -212,8 +212,31 @@
 
 
 
+        /* Video Container */
+        .video-container {
+            margin: 20px auto;
+            width: 90%; /* Aumenta a largura para 90% */
+            max-width: 900px; /* Aumenta o tamanho máximo para 900px */
+            /* Truque para manter a proporção 1:1 (quadrado) */
+            position: relative;
+            padding-bottom: 90%; /* 90% da largura (width: 90%) para um quadrado */
+            height: 0;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .video-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         /* Seção de Autoridade - Galinhas Saudáveis - CORRIGIDO */
         .authority-grid {
+            flex-basis: 55%;
             /* Padrão para mobile: rolagem horizontal */
             display: flex;
             overflow-x: auto;
@@ -230,6 +253,7 @@
 
         @media (min-width: 768px) {
             .authority-grid {
+                flex-basis: 55%;
                 /* Para desktop: volta ao grid de 2 colunas */
                 display: grid;
                 overflow-x: visible;
@@ -244,6 +268,7 @@
 
         @media (min-width: 1024px) {
             .authority-grid {
+                flex-basis: 55%;
                 /* Para desktop maior: grid de 3 colunas */
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -521,6 +546,41 @@
             font-size: 16px; /* Reduzido de 18px */
         }
 
+        /* NOVO Layout Problema e Benefícios Lado a Lado */
+        .problema-beneficios-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 1024px) {
+            .problema-beneficios-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .problema-benefits-card {
+            padding: 32px;
+            border-radius: 8px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .problema-card-content {
+            flex-basis: 45%;
+            padding: 20px;
+            font-size: 1.1em;
+            line-height: 1.5;
+            background: linear-gradient(to right, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15));
+            border: 2px solid rgba(249, 115, 22, 0.4);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 32px;
+        }
+
         /* Benefícios */
         .benefits-grid {
             display: grid;
@@ -567,12 +627,35 @@
             line-height: 1.6;
         }
 
+        /* Video Container */
+        .video-container {
+            margin: 20px auto;
+            width: 90%; /* Aumenta a largura para 90% */
+            max-width: 900px; /* Aumenta o tamanho máximo para 900px */
+            /* Truque para manter a proporção 1:1 (quadrado) */
+            position: relative;
+            padding-bottom: 90%; /* 90% da largura (width: 90%) para um quadrado */
+            height: 0;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .video-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         /* Seção de Autoridade - Galinhas Saudáveis - CORRIGIDO */
         .authority-section {
             background: linear-gradient(to right, rgba(249, 115, 22, 0.1), rgba(239, 68, 68, 0.05));
         }
 
         .authority-grid {
+            flex-basis: 55%;
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
@@ -581,12 +664,14 @@
 
         @media (min-width: 768px) {
             .authority-grid {
+                flex-basis: 55%;
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (min-width: 1024px) {
             .authority-grid {
+                flex-basis: 55%;
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -867,39 +952,50 @@
         </div>
     </section>
 
-    <!-- Seção de Problema -->
-    <section id="problema" class="section-dark">
-        <div class="container">
-            <h2 style="color: #fca5a5;">Tenho certeza de que você já perdeu uma ave para uma dessas doenças</h2>
-            <p class="section-subtitle">Porque não sabia o que fazer. Porque não tinha informação. Porque não tinha acesso aos medicamentos certos.</p>
-
-            <div style="background: linear-gradient(to right, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15)); border: 2px solid rgba(249, 115, 22, 0.4); border-radius: 8px; padding: 32px; text-align: center;">
-                <p style="font-size: 18px; color: #e5e7eb; font-weight: 600;">Mas isso vai acabar. Você vai aprender tudo que precisa para proteger suas aves e nunca mais perder dinheiro com doenças evitáveis.</p>
+    <!-- Seção Problema e Benefícios Lado a Lado -->
+    <section class="section-dark">
+        <div class="container problema-beneficios-wrapper">
+            <!-- Coluna do Problema -->
+            <div id="problema" class="problema-benefits-card" style="background: rgba(30, 41, 59, 0.8);">
+                <div>
+                    <h2 style="color: #fca5a5;">Tenho certeza de que você já perdeu uma ave para uma dessas doenças</h2>
+                    <p class="section-subtitle">Porque não sabia o que fazer. Porque não tinha informação. Porque não tinha acesso aos medicamentos certos.</p>
+                </div>
+                <div class="problema-card-content">
+                    <p style="font-size: 18px; color: #e5e7eb; font-weight: 600;">Mas isso vai acabar. Você vai aprender tudo que precisa para proteger suas aves e nunca mais perder dinheiro com doenças evitáveis.</p>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Seção de Benefícios -->
-    <section>
-        <div class="container">
-            <h2 style="color: #f97316;">VOCÊ VAI PARAR DE PERDER DINHEIRO</h2>
-            <p class="section-subtitle">E começar a lucrar muito mais com suas aves saudáveis</p>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔍</div>
-                    <h3>IDENTIFICAR O PROBLEMA</h3>
-                    <p>Aprenda como reconhecer os sinais de cada doença em suas aves antes que seja tarde demais.</p>
+            <!-- Coluna dos Benefícios -->
+            <div id="beneficios" class="problema-benefits-card" style="background: rgba(30, 41, 59, 0.8);">
+                <div>
+                    <h2 style="color: #f97316;">VOCÊ VAI PARAR DE PERDER DINHEIRO</h2>
+                    <p class="section-subtitle">
+                        E começar a lucrar muito mais com suas aves saudáveis
+                        <div class="video-container">
+                            <video class="video-frame" controls>
+                                <source src="assets/seu-video.mp4" type="video/mp4">
+                                Seu navegador não suporta o elemento de vídeo.
+                            </video>
+                        </div>
+                    </p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>COMBATER SEM RODEIOS</h3>
-                    <p>Estratégias diretas e eficazes para combater cada doença com precisão e rapidez.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h3>MEDICAMENTOS CERTOS</h3>
-                    <p>Usar os medicamentos que realmente funcionam! </p>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔍</div>
+                        <h3>IDENTIFICAR O PROBLEMA</h3>
+                        <p>Aprenda como reconhecer os sinais de cada doença em suas aves antes que seja tarde demais.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>COMBATER SEM RODEIOS</h3>
+                        <p>Estratégias diretas e eficazes para combater cada doença com precisão e rapidez.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📊</div>
+                        <h3>MEDICAMENTOS CERTOS</h3>
+                        <p>Usar os medicamentos que realmente funcionam! </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -934,38 +1030,6 @@
 
             <div class="text-center">
                 <p style="font-size: 18px; color: #d1d5db; font-weight: 600;">Isso é o que você vai conseguir com o conhecimento que vou te passar.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Depoimentos -->
-    <section class="section-dark">
-        <div class="container">
-            <h2>Quer saber como ter suas aves saudáveis assim como as minhas?</h2>
-            <p class="section-subtitle">Veja os resultados reais de quem já aplicou essas técnicas</p>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <img src="assets/Depoimento1.png" alt="Lucimara Silva" class="testimonial-image">
-                    <div class="testimonial-content">
-                        <div class="testimonial-name">Lucimara Silva</div>
-                        <p class="testimonial-text">"Consegui salvar minhas galinhas que nao estavam botando !"</p>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <img src="assets/Depoimento2.png" alt="Paulo de Assis" class="testimonial-image">
-                    <div class="testimonial-content">
-                        <div class="testimonial-name">Paulo de Assis</div>
-                        <p class="testimonial-text">"O segredo das doenças avícolas é o melhor investimento que fiz na minha criação. As dicas de manejo e tratamento são simples e funcionam de verdade."</p>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <img src="assets/Depoimento3.png" alt="Maria Eduarda" class="testimonial-image">
-                    <div class="testimonial-content">
-                        <div class="testimonial-name">Maria Eduarda</div>
-                        <p class="testimonial-text">"Eu estava perdendo muitas aves para a coriza. Depois que apliquei o tratamento que aprendi, nunca mais tive problemas. Recomendo!"</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1006,23 +1070,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.instagram.com/galosmurabrasill/" target="_blank" title="Instagram">
-                    <img src="assets/instagram-icon.png" alt="Instagram" style="width: 35px; height: 35px;">
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61578338141942" target="_blank" title="Facebook">
-                    <img src="assets/facebook-icon.png" alt="Facebook" style="width: 35px; height: 35px;">
-                </a>
-                <a href="https://www.tiktok.com/@galosmurabrasil" target="_blank" title="TikTok">
-                    <img src="assets/tiktok-icon.png" alt="TikTok" style="width: 35px; height: 35px;">
-                </a>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // ============================================
