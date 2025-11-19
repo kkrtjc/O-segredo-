@@ -1,53 +1,24 @@
-'''
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Segredo das Doenças Avícolas | Guia Completo para Criadores</title>
-    <!-- TikTok Pixel Code Start -->
-    <script>
-        !function (w, d, t) {
-            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
-                for (
-                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
-            }, ttq.load = function (e, n) {
-                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
-                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
-            };
-
-
-            ttq.load('D4EJR9JC77UD5T3PS83G');
-            ttq.page();
-        }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
+    <title>O segredo - Landing Page</title>
     <style>
-        /* ESTILOS BASE E VARIÁVEIS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --color-primary: #f97316; /* Laranja principal */
-            --color-secondary: #fed7aa; /* Laranja claro para destaque */
-            --color-text: #d1d5db; /* Cinza claro para texto */
-            --color-background: #0f172a; /* Azul escuro principal */
-            --color-dark: #1e293b; /* Azul escuro secundário */
-        }
-
         body {
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--color-background);
-            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom, #0f172a, #1e293b, #0f172a);
+            color: #fff;
             line-height: 1.6;
             position: relative;
-            padding-top: 60px; /* Espaço para o CTA Fixo */
         }
 
-            /* Fundo com melhor contraste */
             body::before {
                 content: '';
                 position: fixed;
@@ -59,9 +30,9 @@
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
-                opacity: 0.15; /* Reduzida a opacidade para melhor contraste */
+                opacity: 0.30;
                 z-index: -1;
-                filter: blur(5px);
+                filter: blur(8px);
             }
 
         .container {
@@ -70,26 +41,60 @@
             padding: 0 20px;
         }
 
-        /* CTA Fixo (Sticky) */
-        .sticky-cta {
+        /* Header Sticky */
+        header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            background-color: rgba(15, 23, 42, 0.95);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 12px 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
-            .sticky-cta .price-info {
-                font-size: 1.2em;
-                font-weight: bold;
-                color: var(--color-primary);
+            header .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: #f70000;
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .price-info {
+            text-align: right;
+            display: none;
+        }
+
+            .price-info .label {
+                font-size: 12px;
+                color: #9ca3af;
+            }
+
+            .price-info .value {
+                font-size: 18px;
+                font-weight: 900;
+                color: #f97316;
+            }
+
+        @media (min-width: 640px) {
+            .price-info {
+                display: block;
+            }
+        }
 
         .btn {
             background: linear-gradient(to right, #f97316, #ea580c);
@@ -103,82 +108,152 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            text-transform: uppercase;
         }
 
             .btn:hover {
-                transform: scale(1.05);
+                transform: scale(1.1);
                 box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.3);
             }
 
         /* Hero Section */
         .hero {
-            padding-top: 80px;
-            padding-bottom: 60px;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 20px;
+                right: 40px;
+                width: 384px;
+                height: 384px;
+                background: #f97316;
+                border-radius: 50%;
+                mix-blend-mode: multiply;
+                filter: blur(128px);
+                opacity: 0.4;
+                animation: pulse 8s ease-in-out infinite;
+            }
+
+            .hero::after {
+                content: '';
+                position: absolute;
+                bottom: 80px;
+                left: 40px;
+                width: 384px;
+                height: 384px;
+                background: #ef4444;
+                border-radius: 50%;
+                mix-blend-mode: multiply;
+                filter: blur(128px);
+                opacity: 0.4;
+                animation: pulse 8s ease-in-out infinite 2s;
+            }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
             text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            border-radius: 999px;
+            padding: 8px 16px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fed7aa;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 40px; /* Reduzido de 48px */
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 24px;
             line-height: 1.2;
-            color: white;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 56px; /* Reduzido de 64px */
+            }
         }
 
         .highlight {
-            color: var(--color-primary);
+            color: #f97316;
         }
 
         .subtitle {
-            font-size: 1.2em;
-            color: var(--color-text);
-            margin-bottom: 30px;
+            font-size: 18px; /* Reduzido de 20px */
+            color: #d1d5db;
+            margin-bottom: 32px;
         }
 
-        /* Seções */
-        .section {
-            padding: 60px 20px;
-            text-align: center;
-            background-color: var(--color-dark); /* Fundo escuro para todas as seções */
-            border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+        @media (min-width: 768px) {
+            .subtitle {
+                font-size: 20px; /* Reduzido de 24px */
+            }
         }
 
-        h2 {
-            font-size: 2.2em;
-            font-weight: 900;
-            color: var(--color-primary);
-            margin-bottom: 30px;
-        }
 
-        /* Vídeo Placeholder */
-        .video-container {
-            max-width: 600px; /* Não muito grande */
-            margin: 40px auto;
-            background-color: black;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            border: 3px solid var(--color-primary);
-        }
 
-        .video-placeholder {
-            width: 100%;
-            height: 350px; /* Altura padrão para um vídeo 16:9 */
-            background-color: #333;
+        /* Seção de Autoridade - Galinhas Saudáveis - CORRIGIDO */
+        .authority-grid {
+            /* Padrão para mobile: rolagem horizontal */
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            color: var(--color-secondary);
-            text-align: center;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            gap: 20px;
+            margin-bottom: 32px;
+            padding-bottom: 10px;
         }
 
-        /* Carrossel (Estilos do código original) */
+            .authority-grid .authority-card {
+                flex: 0 0 auto;
+                width: 300px; /* Largura fixa para cada card na rolagem horizontal */
+            }
+
+        @media (min-width: 768px) {
+            .authority-grid {
+                /* Para desktop: volta ao grid de 2 colunas */
+                display: grid;
+                overflow-x: visible;
+                grid-template-columns: repeat(2, 1fr);
+                padding-bottom: 0;
+            }
+
+                .authority-grid .authority-card {
+                    width: auto;
+                }
+        }
+
+        @media (min-width: 1024px) {
+            .authority-grid {
+                /* Para desktop maior: grid de 3 colunas */
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* CSS DO CARROSSEL 3D (CASCATA DE FOTOS) */
         .carousel-container {
             position: relative;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             height: 400px;
             perspective: 1000px;
             margin: 32px auto;
@@ -212,10 +287,325 @@
             transform-origin: center center;
             opacity: 0;
             pointer-events: none;
-            border: 2px solid rgba(249, 115, 22, 0.5);
+            border: 2px solid rgba(249, 115, 22, 0.5); /* Mantendo a borda da disease-card */
         }
 
             .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain; /* Para garantir que a imagem inteira apareça */
+                background: #1e293b;
+                display: block;
+                padding: 10px;
+            }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-item.active .carousel-caption {
+            opacity: 1;
+        }
+
+        /* Estado: foto anterior (esquerda) */
+        .carousel-item.prev {
+            left: 50%;
+            transform: translateX(-250px) scale(0.8) rotateY(25deg);
+            opacity: 0.7;
+            z-index: 1;
+            pointer-events: auto;
+        }
+
+        /* Estado: foto em foco (centro) */
+        .carousel-item.active {
+            left: 50%;
+            transform: translateX(-50%) scale(1) rotateY(0deg);
+            opacity: 1;
+            z-index: 3;
+            pointer-events: auto;
+        }
+
+        /* Estado: próxima foto (direita) */
+        .carousel-item.next {
+            left: 50%;
+            transform: translateX(150px) scale(0.85) rotateY(-20deg);
+            opacity: 0.7;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        /* Estado: fotos ocultas */
+        .carousel-item.hidden {
+            opacity: 0;
+            transform: translateX(500px) scale(0.7);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Botões de navegação */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+            .carousel-button:hover {
+                background: rgba(255, 255, 255, 1);
+                transform: translateY(-50%) scale(1.1);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .carousel-button:active {
+                transform: translateY(-50%) scale(0.95);
+            }
+
+            .carousel-button.prev {
+                left: 20px;
+            }
+
+            .carousel-button.next {
+                right: 20px;
+            }
+
+        /* Indicadores */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #f97316;
+        }
+
+            .indicator.active {
+                background: #f97316;
+                transform: scale(1.3);
+            }
+
+            .indicator:hover {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+        /* Responsivo do Carrossel */
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 300px;
+            }
+
+            .carousel-item {
+                width: 280px;
+                height: 240px;
+            }
+
+                .carousel-item.prev {
+                    transform: translateX(-200px) scale(0.7) rotateY(25deg);
+                }
+
+                .carousel-item.next {
+                    transform: translateX(100px) scale(0.75) rotateY(-20deg);
+                }
+
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+                .carousel-button.prev {
+                    left: 10px;
+                }
+
+                .carousel-button.next {
+                    right: 10px;
+                }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-container {
+                height: 250px;
+            }
+
+            .carousel-item {
+                width: 220px;
+                height: 190px;
+            }
+
+                .carousel-item.prev {
+                    transform: translateX(-150px) scale(0.6) rotateY(25deg);
+                }
+
+                .carousel-item.next {
+                    transform: translateX(80px) scale(0.65) rotateY(-20deg);
+                }
+
+            .carousel-button {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+
+        .cta-primary {
+            background: linear-gradient(to right, #f97316, #dc2626);
+            padding: 20px 48px;
+            font-size: 18px;
+            margin-bottom: 32px;
+            display: inline-block;
+        }
+
+            .cta-primary:hover {
+                transform: scale(1.1);
+            }
+
+        /* Seções */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-dark {
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        h2 {
+            font-size: 32px; /* Reduzido de 36px */
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 40px; /* Reduzido de 48px */
+            }
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: 16px; /* Reduzido de 18px */
+        }
+
+        /* Benefícios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .benefit-card {
+            background: linear-gradient(to bottom, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.1));
+            border: 2px solid rgba(249, 115, 22, 0.4);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+            .benefit-card:hover {
+                border-color: rgba(249, 115, 22, 0.8);
+                transform: scale(1.1);
+                box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.3);
+            }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .benefit-card h3 {
+            font-size: 18px;
+            color: #fed7aa;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .benefit-card p {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        /* Seção de Autoridade - Galinhas Saudáveis - CORRIGIDO */
+        .authority-section {
+            background: linear-gradient(to right, rgba(249, 115, 22, 0.1), rgba(239, 68, 68, 0.05));
+        }
+
+        .authority-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .authority-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .authority-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .authority-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid rgba(249, 115, 22, 0.3);
+            transition: all 0.3s ease;
+            height: 280px;
+        }
+
+            .authority-card:hover {
+                border-color: #f97316;
+                transform: scale(1.05);
+            }
+
+            .authority-card img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
@@ -224,215 +614,207 @@
                 padding: 10px;
             }
 
-        /* Seção de Benefícios (Nova Estrutura de 2 Colunas) */
-        .benefits-two-col {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            text-align: left;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-            .benefits-two-col .text-side {
-                flex: 1;
-                min-width: 300px;
-            }
-
-            .benefits-two-col .cards-side {
-                flex: 1;
-                min-width: 300px;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-            }
-
-        .benefit-card {
-            background-color: rgba(249, 115, 22, 0.1);
-            border: 1px solid var(--color-primary);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-
-            .benefit-card h3 {
-                color: var(--color-secondary);
-                margin-bottom: 5px;
-                font-size: 1.2em;
-            }
-
-        /* Depoimentos Embaralhados */
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .testimonial-card-v2 {
-            background-color: var(--color-dark);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            text-align: left;
-            border-left: 4px solid var(--color-primary);
-            font-style: italic;
-            transition: transform 0.3s ease;
-        }
-
-            .testimonial-card-v2:nth-child(3n+1) {
-                transform: rotate(-1deg);
-            }
-
-            .testimonial-card-v2:nth-child(3n+2) {
-                transform: rotate(1deg);
-            }
-
-            .testimonial-card-v2:nth-child(3n) {
-                transform: rotate(0.5deg);
-            }
-
-            .testimonial-card-v2 strong {
-                display: block;
-                margin-top: 10px;
-                color: var(--color-secondary);
-                font-style: normal;
-            }
-
-        /* FAQ */
-        .faq-item {
-            max-width: 800px;
-            margin: 0 auto 15px;
-            text-align: left;
-        }
-
-        .faq-question {
-            background-color: var(--color-dark);
-            padding: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            color: var(--color-primary);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-        }
-
-        .faq-answer {
-            padding: 15px;
-            background-color: var(--color-background);
-            border-radius: 0 0 5px 5px;
-            display: none;
-            border-left: 1px solid var(--color-primary);
-            border-right: 1px solid var(--color-primary);
-            border-bottom: 1px solid var(--color-primary);
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
-            .benefits-two-col {
-                flex-direction: column;
-                text-align: center;
-            }
-
-                .benefits-two-col .text-side,
-                .benefits-two-col .cards-side {
-                    min-width: 100%;
-                }
-
-            .benefit-card {
-                text-align: center;
-            }
-
-            .sticky-cta {
-                flex-direction: column;
-                padding: 10px;
-            }
-
-            .carousel-item {
-                width: 280px;
-                height: 240px;
-            }
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
+        /* Depoimentos - CORRIGIDO */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+            grid-template-columns: 1fr;
+            gap: 32px;
         }
 
-        .testimonial-img {
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background: linear-gradient(to bottom, rgba(249, 115, 22, 0.1), transparent);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .testimonial-card:hover {
+                border-color: rgba(249, 115, 22, 0.6);
+            }
+
+        .testimonial-image {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            height: 350px;
+            object-fit: contain;
+            background: #1e293b;
+            padding: 15px;
         }
 
-        footer {
-            background-color: var(--color-background);
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(249, 115, 22, 0.2);
+        .testimonial-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
+
+        .testimonial-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f97316;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-text {
+            color: #d1d5db;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Garantia */
+        .guarantee-section {
+            background: linear-gradient(to right, rgba(249, 115, 22, 0.1), rgba(239, 68, 68, 0.1));
+        }
+
+        .guarantee-box {
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid #f97316;
+            border-radius: 8px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .guarantee-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        .guarantee-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: #f97316;
+            margin-bottom: 24px;
+        }
+
+        .guarantee-list {
+            text-align: left;
+            max-width: 512px;
+            margin: 0 auto 32px;
+        }
+
+        .guarantee-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+            .guarantee-item::before {
+                content: '✓';
+                color: #f97316;
+                font-weight: 900;
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+
+
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            border-top: 1px solid rgba(249, 115, 22, 0.2);
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+            .social-links a {
+                color: #9ca3af;
+                text-decoration: none;
+                font-size: 24px;
+                transition: color 0.3s ease;
+            }
+
+                .social-links a:hover {
+                    color: #f97316;
+                }
 
         .footer-text {
-            font-size: 0.9em;
-            color: var(--color-text);
-            max-width: 600px;
-            margin: 5px auto;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+            .scroll-indicator button {
+                background: none;
+                border: none;
+                color: #f97316;
+                cursor: pointer;
+                font-size: 32px;
+                animation: bounce 2s infinite;
+                transition: color 0.3s ease;
+            }
+
+                .scroll-indicator button:hover {
+                    color: #fed7aa;
+                    transform: scale(1.25);
+                }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .price-big {
+            font-size: 48px;
+            font-weight: 900;
+            color: #f97316;
+            margin-bottom: 24px;
         }
     </style>
 </head>
 <body>
-
-    <!-- CTA Fixo (Sticky) -->
-    <div class="sticky-cta">
-        <div class="price-info">
-            OFERTA DE LANÇAMENTO: R$ 84,90
+    <!-- Header Sticky -->
+    <header>
+        <div class="container">
+            <div class="logo">O SEGREDO DAS DOENÇAS AVICOLAS</div>
+            <div class="header-right">
+                <div class="price-info">
+                    <div class="label">POR TEMPO LIMITADO</div>
+                    <div class="value">R$ 84,90</div>
+                </div>
+                <a href="https://pay.kiwify.com.br/t4bvM9I" target="_blank" class="btn">COMPRAR</a>
+            </div>
         </div>
-        <a href="#checkout" class="btn">QUERO SALVAR MINHAS AVES</a>
-    </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="badge" style="color: #f97316; border-color: #f97316;">⏰ PREÇO DE LANÇAMENTO - TEMPO LIMITADO</div>
+        <div class="container hero-content">
+            <div class="badge">⏰ PREÇO DE LANÇAMENTO - TEMPO LIMITADO</div>
             <h1><span class="highlight">NÃO FIQUE OLHANDO</span> SUA CRIAÇÃO SER DESTRUÍDA</h1>
-            <p class="subtitle">Suas galinhas estão morrendo e você não sabe por quê? Você não precisa de um veterinário para saber a causa.</p>
+            <p class="subtitle">Suas galinhas estão morrendo e você não sabe por quê? voce nao precisa de um veterinario para saber </p>
 
-            <h2 style="color: white; margin-bottom: 5px;">VOCÊ PRECISA SABER</h2>
-            <h1 style="font-size: 2.5em; color: var(--color-primary);">O SEGREDO DAS DOENÇAS AVÍCOLAS</h1>
-            <p class="subtitle" style="max-width: 700px; margin: 0 auto 30px;">SEU GUIA DIRETO E EFICIENTE PARA **IDENTIFICAR E TRATAR** AS DOENÇAS NA SUAS AVES, SEM RODEIOS. **SÓ INFORMAÇÃO DE QUALIDADE** QUE FUNCIONA NA PRÁTICA.</p>
+            <h2 style="color: #FF0000;">VOCE PRECISA SABER</h2>
+            <h2 style="color: #FFFFFF;">O SEGREDO DAS DOENÇAS AVICOLAS</h2>
+            <p class="subtitle">SEU GUIA DIRETO E EFICIENTE DE IDENTIFICAR E TRATAR AS DOENÇAS NA SUAS AVES, SEM RODEIOS, SO INFORMAÇAO DE QUALIDADE </p>
 
             <!-- INÍCIO DO CARROSSEL 3D (CASCATA DE FOTOS) -->
             <div class="carousel-container">
@@ -464,158 +846,163 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- FIM DO CARROSSEL -->
-            <!-- MOLDURA DE VÍDEO -->
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <!-- O vídeo será inserido aqui -->
+
+                <!-- Botões de navegação -->
+                <button class="carousel-button prev" aria-label="Foto anterior">❮</button>
+                <button class="carousel-button next" aria-label="Próxima foto">❯</button>
+
+                <!-- Indicadores -->
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                    <div class="indicator" data-index="2"></div>
+                    <div class="indicator" data-index="3"></div>
+                    <div class="indicator" data-index="4"></div>
+                    <div class="indicator" data-index="5"></div>
                 </div>
             </div>
+            <!-- FIM DO CARROSSEL 3D (CASCATA DE FOTOS) -->
 
-
-
-            <p class="subtitle" style="font-size: 1.4em; max-width: 800px; margin: 20px auto;">
-                <strong>Cançado de ver suas aves morrerm ?</strong> isso vai acabar. Você vai aprender tudo que precisa para proteger suas aves e nunca mais perder dinheiro com doenças evitáveis
-            </p>
-
-            <!-- Botão CTA após o vídeo -->
-            <a href="#checkout" class="btn" style="margin-top: 30px;">✓ QUERO SALVAR MINHAS AVES AGORA</a>
+            <a href="https://pay.kiwify.com.br/t4bvM9I" target="_blank" class="btn cta-primary">✓ QUERO SABER AGORA</a>
         </div>
     </section>
 
-    <!-- Seção de Benefícios (Nova Estrutura de 2 Colunas) -->
-    <section class="section" id="beneficios">
+    <!-- Seção de Problema -->
+    <section id="problema" class="section-dark">
         <div class="container">
-            <div class="benefits-two-col">
-                <div class="text-side">
-                    <h2 style="text-align: left; color: white;">VOCE VAI PARA DE PERDER DINHEIRO</h2>
-                    <p style="font-size: 1.2em; text-align: left;">E começar a lucrar muito mais com suas aves saudáveis</p>
-                    <a href="#checkout" class="btn" style="margin-top: 20px;">QUERO LUCRAR COM MINHAS AVES</a>
-                </div>
-                <div class="cards-side">
-                    <div class="benefit-card">
-                        <h3>✅ Economia Imediata</h3>
-                        <p>Pare de gastar dinheiro com medicamentos errados e consultas desnecessárias.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>✅ Aumento da Produção</h3>
-                        <p>Aves saudáveis produzem mais ovos e carne, aumentando seu lucro.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>✅ Paz de Espírito</h3>
-                        <p>Tenha a certeza de que está fazendo o melhor para o seu plantel.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>✅ Conhecimento Profissional</h3>
-                        <p>Aprenda os protocolos usados pelos maiores criadores do país.</p>
-                    </div>
-                </div>
+            <h2 style="color: #fca5a5;">Tenho certeza de que você já perdeu uma ave para uma dessas doenças</h2>
+            <p class="section-subtitle">Porque não sabia o que fazer. Porque não tinha informação. Porque não tinha acesso aos medicamentos certos.</p>
+
+            <div style="background: linear-gradient(to right, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15)); border: 2px solid rgba(249, 115, 22, 0.4); border-radius: 8px; padding: 32px; text-align: center;">
+                <p style="font-size: 18px; color: #e5e7eb; font-weight: 600;">Mas isso vai acabar. Você vai aprender tudo que precisa para proteger suas aves e nunca mais perder dinheiro com doenças evitáveis.</p>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Depoimentos (Comentados e Embaralhados) -->
-    <section class="section" id="depoimentos">
+    <!-- Seção de Benefícios -->
+    <section>
         <div class="container">
-            <h2>O QUE NOSSOS CLIENTES DIZEM</h2>
-            <p class="subtitle">Veja os resultados de quem já aplicou o método</p>
-            <div class="testimonials-container">
-                <div class="testimonial-card-v2">
-                    "Desde que comecei a usar o guia, a mortalidade no meu plantel caiu para zero. O conhecimento é ouro, e este guia vale cada centavo. Recomendo a todos os criadores!"
-                    <strong>João P. - Criador de Galinhas Caipiras</strong>
+            <h2 style="color: #f97316;">VOCÊ VAI PARAR DE PERDER DINHEIRO</h2>
+            <p class="section-subtitle">E começar a lucrar muito mais com suas aves saudáveis</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔍</div>
+                    <h3>IDENTIFICAR O PROBLEMA</h3>
+                    <p>Aprenda como reconhecer os sinais de cada doença em suas aves antes que seja tarde demais.</p>
                 </div>
-                <div class="testimonial-card-v2">
-                    "Eu estava perdendo aves toda semana e não sabia mais o que fazer. O guia me deu o passo a passo exato para identificar e tratar a coriza infecciosa. Minhas aves estão mais saudáveis do que nunca!"
-                    <strong>Maria S. - Produtora de Ovos</strong>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>COMBATER SEM RODEIOS</h3>
+                    <p>Estratégias diretas e eficazes para combater cada doença com precisão e rapidez.</p>
                 </div>
-                <div class="testimonial-card-v2">
-                    "A seção sobre prevenção e higiene mudou completamente minha rotina. Não é só sobre tratar, é sobre evitar. Meu lucro aumentou porque não estou mais gastando com remédios caros e ineficazes."
-                    <strong>Carlos M. - Avicultor</strong>
-                </div>
-                <div class="testimonial-card-v2">
-                    "Simplesmente o melhor investimento que fiz este ano. A linguagem é clara, direta e o conteúdo é aplicável imediatamente. Consegui salvar um lote inteiro de frangos graças aos protocolos de tratamento."
-                    <strong>Ana L. - Pequena Fazenda</strong>
-                </div>
-                <div class="testimonial-card-v2">
-                    "O preço é irrisório perto do valor que o guia entrega. A informação sobre coccidiose e como combatê-la de forma natural foi um divisor de águas para mim. Parabéns pelo material!"
-                    <strong>Roberto F. - Criador Amador</strong>
-                </div>
-                <div class="testimonial-card-v2">
-                    "Eu era cético, mas o resultado fala por si. Em menos de 15 dias, a saúde das minhas aves melhorou visivelmente. Agradeço muito por compartilhar esse conhecimento."
-                    <strong>Patrícia G. - Iniciante na Criação</strong>
-                </div>
-                <div class="testimonial-card-v2">
-                    "O guia é um verdadeiro manual de primeiros socorros para aves. Me sinto muito mais segura agora para lidar com qualquer problema que apareça. A parte sobre vacinação é excelente."
-                    <strong>Eduardo R. - Criador Experiente</strong>
-                </div>
-                <div class="testimonial-card-v2">
-                    "Finalmente um material que foca na solução e não só no problema. As dicas de manejo e nutrição são tão valiosas quanto os protocolos de tratamento. Nota 10!"
-                    <strong>Fernanda B. - Consultora Agrícola</strong>
-                </div>
-                <div class="testimonial-card-v2">
-                    "Consegui identificar a Doença de Marek em um estágio inicial e isolar as aves, salvando o resto do plantel. O conhecimento é poder, e este guia me deu esse poder."
-                    <strong>Ricardo V. - Criador de Aves Ornamentais</strong>
-                </div>
-                <div class="testimonial-card-v2">
-                    "O formato de FAQ no final é muito útil, mas o conteúdo principal é o que realmente importa. É prático, direto e funciona. O melhor guia de doenças avícolas do mercado."
-                    <strong>Silvia R. - Apaixonada por Aves</strong>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>MEDICAMENTOS CERTOS</h3>
+                    <p>Usar os medicamentos que realmente funcionam! </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Garantia e Checkout -->
-    <section class="section" id="checkout">
+    <!-- Seção de Autoridade - Galinhas Saudáveis -->
+    <section class="authority-section">
         <div class="container">
-            <h2>GARANTIA TOTAL E ACESSO IMEDIATO</h2>
+            <h2>Veja a Qualidade da Minha Criação</h2>
+            <p class="section-subtitle">Essas são algumas das minhas aves saudáveis e produtivas</p>
 
-            <div class="price-box" style="background-color: var(--color-primary); padding: 30px; border-radius: 10px; max-width: 400px; margin: 40px auto; box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);">
-                <p style="text-decoration: line-through; font-size: 1.2em; color: rgba(255, 255, 255, 0.7);">De R$ 197,00</p>
-                <p style="font-size: 1.5em; margin: 5px 0;">Por Apenas</p>
-                <p style="font-size: 3em; font-weight: bold; margin: 10px 0;">R$ 84,90</p>
-                <p style="font-size: 1.1em; margin-top: -10px;">(Preço de Lançamento por Tempo Limitado)</p>
-                <a href="https://pay.kiwify.com.br/t4bvM9I" target="_blank" class="btn" style="margin-top: 20px;">QUERO GARANTIR MEU ACESSO AGORA</a>
+            <div class="authority-grid">
+                <div class="authority-card">
+                    <img src="assets/Galinhasaudavel1.jpeg" alt="Galinha Saudável 1">
+                </div>
+                <div class="authority-card">
+                    <img src="assets/Galinhasaudavel2.jpeg" alt="Galinha Saudável 2">
+                </div>
+                <div class="authority-card">
+                    <img src="assets/Galinhasaudavel3.jpeg" alt="Galinha Saudável 3">
+                </div>
+                <div class="authority-card">
+                    <img src="assets/Galinhasaudavel4.jpeg" alt="Galinha Saudável 4">
+                </div>
+                <div class="authority-card">
+                    <img src="assets/Galinhasaudavel5.jpeg" alt="Galinha Saudável 5">
+                </div>
+                <div class="authority-card">
+                    <img src="assets/Galinhasaudavel6.jpg" alt="Galinha Saudável 6">
+                </div>
             </div>
 
-            <h3 style="color: var(--color-secondary); margin-top: 40px;">🔒 GARANTIA INCONDICIONAL DE 7 DIAS</h3>
-            <p style="max-width: 600px; margin: 10px auto;">Sua satisfação é nossa prioridade. Se por qualquer motivo você não estiver 100% satisfeito com o conteúdo, basta solicitar o reembolso total em até 7 dias. **Você não tem nada a perder, apenas a oportunidade de salvar suas aves e aumentar seus lucros.**</p>
-
-            <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 1.1em; max-width: 600px; margin: 20px auto;">
-                <li style="margin-bottom: 10px; text-align: left;">✅ Acesso imediato ao guia completo</li>
-                <li style="margin-bottom: 10px; text-align: left;">✅ Protocolos de tratamento passo a passo</li>
-                <li style="margin-bottom: 10px; text-align: left;">✅ Reembolso total se não ficar satisfeito</li>
-            </ul>
+            <div class="text-center">
+                <p style="font-size: 18px; color: #d1d5db; font-weight: 600;">Isso é o que você vai conseguir com o conhecimento que vou te passar.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Seção de FAQ (Perguntas Frequentes) -->
-    <section class="section" id="faq-section">
+    <!-- Seção de Depoimentos -->
+    <section class="section-dark">
         <div class="container">
-            <h2>PERGUNTAS FREQUENTES (FAQ)</h2>
-            <div class="faq-item">
-                <div class="faq-question">Este guia substitui a consulta a um veterinário?</div>
-                <div class="faq-answer">Não. Este guia é um manual prático para que você possa identificar e tratar as doenças mais comuns e urgentes, economizando tempo e dinheiro. Ele te capacita a resolver 90% dos problemas do dia a dia, mas em casos graves ou persistentes, a consulta profissional é sempre recomendada.</div>
+            <h2>Quer saber como ter suas aves saudáveis assim como as minhas?</h2>
+            <p class="section-subtitle">Veja os resultados reais de quem já aplicou essas técnicas</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="assets/Depoimento1.png" alt="Lucimara Silva" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <div class="testimonial-name">Lucimara Silva</div>
+                        <p class="testimonial-text">"Consegui salvar minhas galinhas que nao estavam botando !"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="assets/Depoimento2.png" alt="Paulo de Assis" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <div class="testimonial-name">Paulo de Assis</div>
+                        <p class="testimonial-text">"O segredo das doenças avícolas é o melhor investimento que fiz na minha criação. As dicas de manejo e tratamento são simples e funcionam de verdade."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="assets/Depoimento3.png" alt="Maria Eduarda" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <div class="testimonial-name">Maria Eduarda</div>
+                        <p class="testimonial-text">"Eu estava perdendo muitas aves para a coriza. Depois que apliquei o tratamento que aprendi, nunca mais tive problemas. Recomendo!"</p>
+                    </div>
+                </div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">O guia funciona para todas as raças de aves?</div>
-                <div class="faq-answer">Sim. As doenças avícolas e os protocolos de tratamento abordados são universais e aplicáveis a galinhas caipiras, poedeiras, frangos de corte e outras aves de criação.</div>
+        </div>
+    </section>
+
+    <!-- Seção de Garantia -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-box">
+                <div class="guarantee-icon">🔒</div>
+                <div class="guarantee-title">GARANTIA INCONDICIONAL DE 7 DIAS</div>
+                <p style="color: #d1d5db; margin-bottom: 32px;">Sua satisfação é nossa prioridade. Se por qualquer motivo você não estiver 100% satisfeito com o conteúdo, basta solicitar o reembolso total em até 7 dias.</p>
+
+                <div class="guarantee-list">
+                    <div class="guarantee-item">Acesso imediato ao conteúdo completo</div>
+                    <div class="guarantee-item">Suporte dedicado para tirar todas as suas dúvidas</div>
+                    <div class="guarantee-item">Reembolso total se não ficar satisfeito</div>
+                </div>
+
+                <p style="font-size: 14px; color: #9ca3af;">Você não tem nada a perder. Apenas a oportunidade de salvar suas aves e aumentar seus lucros.</p>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">O tratamento sugerido é caro?</div>
-                <div class="faq-answer">Não. O guia foca em soluções eficazes e acessíveis. O maior custo é a perda de aves por falta de conhecimento. O investimento no guia é rapidamente recuperado ao evitar a morte de apenas uma ou duas aves.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Como recebo o acesso ao guia?</div>
-                <div class="faq-answer">O acesso é imediato e digital. Após a confirmação do pagamento, você receberá um e-mail com o link para baixar o guia completo e acessar a área de membros.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Preciso de algum equipamento especial para aplicar o que é ensinado?</div>
-                <div class="faq-answer">Não. O guia é focado em soluções práticas e acessíveis, utilizando recursos que a maioria dos criadores já possui ou pode adquirir facilmente. O foco é no conhecimento e no manejo correto.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">O pagamento é seguro?</div>
-                <div class="faq-answer">Sim, o pagamento é processado pela Kiwify, uma das maiores e mais seguras plataformas de produtos digitais do Brasil. Seus dados estão 100% protegidos.</div>
+        </div>
+    </section>
+
+    <!-- Seção de CTA Final -->
+    <section>
+        <div class="container text-center">
+            <h2>FAÇA SUA ESCOLHA</h2>
+            <p style="font-size: 24px; color: #f97316; font-weight: 900; margin-bottom: 32px;">Quer saber como ter suas aves saudáveis ou vai continuar vendo suas galinhas morrer?</p>
+
+            <div style="background: linear-gradient(to right, rgba(249, 115, 22, 0.2), rgba(239, 68, 68, 0.2)); border: 2px solid #f97316; border-radius: 8px; padding: 32px;">
+                <p style="font-size: 14px; color: #9ca3af; margin-bottom: 16px;">⏰ PREÇO DE LANÇAMENTO POR TEMPO LIMITADO</p>
+
+
+
+                <div class="price-big">R$ 84,90</div>
+
+                <a href="https://pay.kiwify.com.br/t4bvM9I" target="_blank" class="btn cta-primary">QUERO GARANTIR MEU ACESSO AGORA</a>
             </div>
         </div>
     </section>
@@ -623,27 +1010,143 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="footer-text">© 2024 O Segredo das Doenças Avícolas. Todos os direitos reservados.</p>
-            <p class="footer-text">Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/galosmurabrasill/" target="_blank" title="Instagram">
+                    <img src="assets/instagram-icon.png" alt="Instagram" style="width: 35px; height: 35px;">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61578338141942" target="_blank" title="Facebook">
+                    <img src="assets/facebook-icon.png" alt="Facebook" style="width: 35px; height: 35px;">
+                </a>
+                <a href="https://www.tiktok.com/@galosmurabrasil" target="_blank" title="TikTok">
+                    <img src="assets/tiktok-icon.png" alt="TikTok" style="width: 35px; height: 35px;">
+                </a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Script para funcionalidade do FAQ
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isVisible = answer.style.display === 'block';
+        // ============================================
+        // JAVASCRIPT DO CARROSSEL 3D (CASCATA DE FOTOS)
+        // ============================================
+        class CarouselSlider {
+            constructor() {
+                this.items = document.querySelectorAll('.carousel-item');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.querySelector('.carousel-button.prev');
+                this.nextBtn = document.querySelector('.carousel-button.next');
 
-                // Fecha todos os outros
-                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                this.currentIndex = 0;
+                this.totalItems = this.items.length;
+                this.isAnimating = false;
+                this.animationDuration = 600; // ms
 
-                // Abre ou fecha o clicado
-                answer.style.display = isVisible ? 'none' : 'block';
-            });
+                // Inicializa o carrossel na primeira foto
+                this.updateCarousel(false);
+                this.init();
+            }
+
+            init() {
+                this.prevBtn.addEventListener('click', () => this.slidePrev());
+                this.nextBtn.addEventListener('click', () => this.slideNext());
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.slideToIndex(index));
+                });
+
+                // Suporte a toque em dispositivos móveis
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                document.querySelector('.carousel-wrapper').addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, false);
+
+                document.querySelector('.carousel-wrapper').addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe(touchStartX, touchEndX);
+                }, false);
+            }
+
+            handleSwipe(startX, endX) {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        this.slideNext();
+                    } else {
+                        this.slidePrev();
+                    }
+                }
+            }
+
+            slideNext() {
+                if (this.isAnimating) return;
+                this.currentIndex = (this.currentIndex + 1) % this.totalItems;
+                this.updateCarousel();
+            }
+
+            slidePrev() {
+                if (this.isAnimating) return;
+                this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
+                this.updateCarousel();
+            }
+
+            slideToIndex(index) {
+                if (this.isAnimating || index === this.currentIndex) return;
+                this.currentIndex = index;
+                this.updateCarousel();
+            }
+
+            updateCarousel(animate = true) {
+                if (animate) {
+                    this.isAnimating = true;
+                }
+
+                // Atualizar classes dos itens
+                this.items.forEach((item, index) => {
+                    item.classList.remove('active', 'next', 'prev', 'hidden');
+
+                    // Lógica de loop para determinar a posição
+                    const position = (index - this.currentIndex + this.totalItems) % this.totalItems;
+
+                    if (position === 0) {
+                        item.classList.add('active');
+                    } else if (position === 1) {
+                        item.classList.add('next');
+                    } else if (position === this.totalItems - 1) {
+                        item.classList.add('prev');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                // Atualizar indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentIndex);
+                });
+
+                // Permitir próxima animação após a duração
+                if (animate) {
+                    setTimeout(() => {
+                        this.isAnimating = false;
+                    }, this.animationDuration);
+                }
+            }
+        }
+
+
+
+
+        // Inicializar carrossel e timer quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa o carrossel
+            // Usando try-catch para evitar que um erro no carrossel quebre o timer
+            try {
+                new CarouselSlider();
+            } catch (e) {
+                console.error("Erro ao inicializar o CarouselSlider:", e);
+            }
         });
     </script>
-
 </body>
 </html>
-'''
