@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDSZ2EX009"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDSZ2EX009');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Segredo das Doenças Avícolas - Criador de Elite</title>
-    
-    <!-- Facebook Pixel -->
+    <!-- Meta Pixel Code -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '824040683676024');
-      fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '824040683676024');
+        fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=824040683676024&ev=PageView&noscript=1" /></noscript>
-    <!-- End Facebook Pixel -->
-    
-    <!-- TikTok Pixel -->
-    <script>
-      !function (w, d, t) {
-        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-        ttq.methods=['pageview','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie'];
-        function ttq_method(){var ttq_method_args=arguments;return function(){ttq.push([ttq_method_args[0]].concat(ttq_method_args.slice(1)))}};
-        ttq.methods.forEach(function(ttq_method){ttq[ttq_method]=ttq_method(ttq_method)});
-        ttq.instance=function(t){for(var ttq_instance={_queue:[]},i=0;i<ttq.methods.length;i++)ttq_instance[ttq.methods[i]]=ttq_method(ttq.methods[i],t);return ttq_instance};
-        ttq.load=function(e,t){var n=document.createElement('script');n.type='text/javascript',n.async=!0,n.src='https://analytics.tiktok.com/i18n/pixel/events.js?sdkid='+e;var o=document.getElementsByTagName('script')[0];o.parentNode.insertBefore(n,o)};
-        ttq.load('D4EJR9JC77UD5T3PS83G');
-        ttq.pageview();
-      }(window, document, 'ttq');
-    </script>
-    <!-- End TikTok Pixel -->
+
+    <!-- End Meta Pixel Code -->
     <style>
         * {
             margin: 0;
@@ -780,6 +776,10 @@
     </style>
 </head>
 <body>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=824040683676024&ev=PageView&noscript=1" />
+    </noscript>
     <!-- Header -->
     <header>
         <div class="header-container">
@@ -787,9 +787,9 @@
             <nav>
                 <a href="#beneficios">Benefícios</a>
                 <a href="#depoimentos">Depoimentos</a>
-                <a href="#cta">Comprar</a>
+                <a href="https://pay.kiwify.com.br/t4bvM9I">Comprar</a>
             </nav>
-            <a href="#cta" class="cta-header">Acessar Agora</a>
+            <a href="https://pay.kiwify.com.br/t4bvM9I" class="cta-header">Acessar Agora</a>
         </div>
     </header>
 
@@ -814,9 +814,9 @@
             </p>
 
             <div class="button-group">
-                <button class="btn btn-primary" onclick="document.getElementById('cta').scrollIntoView({behavior: 'smooth'})">
+                <a href="https://pay.kiwify.com.br/t4bvM9I" class="btn btn-primary">
                     Acessar Agora - R$ 84,90
-                </button>
+                </a>
                 <button class="btn btn-secondary" onclick="openDemoModal()">
                     Ver Demonstração
                 </button>
@@ -924,9 +924,9 @@
                 </div>
             </div>
 
-            <button class="btn-cta" onclick="alert('Redirecionando para pagamento...')">
+            <a href="https://pay.kiwify.com.br/t4bvM9I" class="btn-cta">
                 Acessar Agora - R$ 84,90
-            </button>
+            </a>
 
             <div class="guarantee-box">
                 <div class="guarantee-icon">🛡️</div>
@@ -1051,24 +1051,24 @@
             const visibleCount = showAll ? testimonials.length : 6;
 
             list.innerHTML = testimonials.slice(0, visibleCount).map(t => `
-                                    <div class="testimonial-card">
-                                        <div class="testimonial-header">
-                                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
-                                            <div class="testimonial-info">
-                                                <h4>${t.name}</h4>
-                                                <p>• ${t.location}</p>
+                                            <div class="testimonial-card">
+                                                <div class="testimonial-header">
+                                                    <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                                                    <div class="testimonial-info">
+                                                        <h4>${t.name}</h4>
+                                                        <p>• ${t.location}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="stars">
+                                                    <span class="star">★</span>
+                                                    <span class="star">★</span>
+                                                    <span class="star">★</span>
+                                                    <span class="star">★</span>
+                                                    <span class="star">★</span>
+                                                </div>
+                                                <p class="testimonial-text">"${t.text}"</p>
                                             </div>
-                                        </div>
-                                        <div class="stars">
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                        </div>
-                                        <p class="testimonial-text">"${t.text}"</p>
-                                    </div>
-                                `).join('');
+                                        `).join('');
 
             const btn = document.getElementById('show-more-btn');
             if (showAll) {
@@ -1130,5 +1130,16 @@
         renderTestimonials();
         updateTimer();
     </script>
+    <!-- TikTok Pixel Code -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "load", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.load = function (e, n) { var i = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq.setup = { pixelCode: e, cna: n }, ttq.load.url = i, ttq.push([e]) };
+            var a = d.createElement("script"); a.type = "text/javascript"; a.async = !0; a.src = ttq.load.url ? ttq.load.url : i;
+            var n = d.getElementsByTagName("script")[0]; n.parentNode.insertBefore(a, n);
+        }(window, document, 'ttq');
+        ttq.load('D4EJR9JC77UD5T3PS83G');
+        ttq.page();
+    </script>
+    <!-- End TikTok Pixel Code -->
 </body>
 </html>
