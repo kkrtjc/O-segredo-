@@ -2,13 +2,13 @@
 <html lang="pt-BR">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDSZ2EX009"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-430QD56D2K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-LDSZ2EX009');
+        gtag('config', 'G-430QD56D2K');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,7 +153,7 @@
 
         .ebook-cover-container {
             margin: 2rem auto;
-            max-width: 20rem; /* Tamanho ideal para uma capa de ebook */
+            max-width: 30rem; /* Tamanho ideal para uma capa de ebook */
             border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
@@ -173,18 +173,26 @@
         }
 
         .video-container {
-            margin: 2rem auto;
+            margin: 1rem auto;
             border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-            max-width: 24rem;
+            max-width: 35rem;
         }
 
             .video-container iframe {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 16 / 9;
+                aspect-ratio: 1 / 1;
                 border: none;
+            }
+
+            .video-container video {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                display: block;
+                object-fit: cover;
             }
 
         .hero-text {
@@ -783,7 +791,7 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">🐔 Criador de Elite</div>
+            <div class="logo"> Criador de Elite</div>
             <nav>
                 <a href="#beneficios">Benefícios</a>
                 <a href="#depoimentos">Depoimentos</a>
@@ -799,18 +807,21 @@
             <div class="urgency-badge">⚠️ OFERTA LIMITADA - 47 cópias restantes</div>
 
             <h1>Nunca mais perca galinhas por doença</h1>
+
+            <div class="video-container">
+                <video controls poster="capadovideo1.jpg">
+                    <source src="assets/video1.webm" type="video/webm">
+                    Seu navegador não suporta a tag de vídeo HTML5.
+                </video>
+            </div>
+
             <h1> <strong style="color: #FF0000;"> SE TORNE UM CRIADOR DE ELITE</strong> </h1>
 
             <!-- Video Section -->
             <div class="ebook-cover-container">
                 <img src="capa.png" alt="Capa do E-book O Segredo das Doenças Avícolas" class="ebook-cover">
             </div>
-            <div class="video-container">
-                <video controls>
-                    <source src="assets/video1.webm" type="video/webm">
-                    Seu navegador não suporta a tag de vídeo HTML5.
-                </video>
-            </div>
+
 
             <p class="hero-text">
                 Guia completo com mais de 10 anos de experiência prática reunido. Identifique, trate e previna mais de 11 doenças avícolas. Sem complicações, Sem enrolaçao.
@@ -830,7 +841,7 @@
                     </div>
                     <p class="urgency-subtext">Preço sobe em breve</p>
                 </div>
-               
+
             </div>
         </div>
     </section>
@@ -914,7 +925,7 @@
                     <div class="feature-item">Protocolos de tratamento testados</div>
                     <div class="feature-item">Calendário de vacinação</div>
                     <div style="display: flex; justify-content: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                        <img src="capa.png" alt="Capa do Guia" style="max-width: 100px; height: auto; border-radius: 0.5rem; border: 2px solid rgba(255, 255, 255, 0.3);">
+                        <img src="capa.png" alt="Capa do Guia" style="max-width: 350px; height: auto; border-radius: 1rem; border: 5px solid rgba(255, 255, 255, 0.3);">
                     </div>
                 </div>
             </div>
@@ -1037,24 +1048,24 @@
             const visibleCount = showAll ? testimonials.length : 6;
 
             list.innerHTML = testimonials.slice(0, visibleCount).map(t => `
-                                                    <div class="testimonial-card">
-                                                        <div class="testimonial-header">
-                                                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
-                                                            <div class="testimonial-info">
-                                                                <h4>${t.name}</h4>
-                                                                <p>• ${t.location}</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="stars">
-                                                            <span class="star">★</span>
-                                                            <span class="star">★</span>
-                                                            <span class="star">★</span>
-                                                            <span class="star">★</span>
-                                                            <span class="star">★</span>
-                                                        </div>
-                                                        <p class="testimonial-text">"${t.text}"</p>
-                                                    </div>
-                                                `).join('');
+                                                                <div class="testimonial-card">
+                                                                    <div class="testimonial-header">
+                                                                        <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                                                                        <div class="testimonial-info">
+                                                                            <h4>${t.name}</h4>
+                                                                            <p>• ${t.location}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="stars">
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                    </div>
+                                                                    <p class="testimonial-text">"${t.text}"</p>
+                                                                </div>
+                                                            `).join('');
 
             const btn = document.getElementById('show-more-btn');
             if (showAll) {
@@ -1111,5 +1122,40 @@
         ttq.page();
     </script>
     <!-- End TikTok Pixel Code -->
+    <!-- Video Autoplay Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seleciona o container do vídeo e o elemento de vídeo
+            const videoContainer = document.querySelector('.video-container');
+            const video = videoContainer ? videoContainer.querySelector('video') : null;
+
+            if (video) {
+                // Configura o Intersection Observer
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // Verifica se o elemento está visível (pelo menos 10% dele)
+                        if (entry.isIntersecting) {
+                            // Tenta iniciar a reprodução do vídeo
+                            video.play().catch(error => {
+                                // Captura e loga erros de autoplay (comum em navegadores)
+                                console.log('Autoplay bloqueado ou falhou:', error);
+                                // Se o autoplay falhar, o usuário terá que clicar no botão de play padrão
+                            });
+                            // Para de observar depois que o vídeo tenta iniciar
+                            observer.unobserve(videoContainer);
+                        }
+                    });
+                }, {
+                    root: null, // Observa em relação à viewport
+                    rootMargin: '0px',
+                    threshold: 0.1 // 10% do elemento visível
+                });
+
+                // Começa a observar o container do vídeo
+                observer.observe(videoContainer);
+            }
+        });
+    </script>
+    <!-- End Video Autoplay Script -->
 </body>
 </html>
