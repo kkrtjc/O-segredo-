@@ -178,6 +178,8 @@
             overflow: hidden;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
             max-width: 35rem;
+            position: relative;
+            background: #000;
         }
 
             .video-container iframe {
@@ -194,6 +196,45 @@
                 display: block;
                 object-fit: cover;
             }
+
+        .video-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .play-icon {
+            width: 80px;
+            height: 80px;
+            color: white;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            animation: pulse-play 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-play {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .video-container.playing .video-play-overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
 
         .hero-text {
             font-size: 1.25rem;
@@ -808,11 +849,17 @@
 
             <h1>Nunca mais perca galinhas por doença</h1>
 
-            <div class="video-container">
-                <video controls poster="capadovideo1.jpg">
+            <div class="video-container" id="videoContainer">
+                <video controls id="mainVideo">
+                    <source src="assets/video1.mp4" type="video/mp4">
                     <source src="assets/video1.webm" type="video/webm">
                     Seu navegador não suporta a tag de vídeo HTML5.
                 </video>
+                <div class="video-play-overlay" id="playOverlay">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                </div>
             </div>
 
             <h1> <strong style="color: #FF0000;"> SE TORNE UM CRIADOR DE ELITE</strong> </h1>
@@ -1048,24 +1095,24 @@
             const visibleCount = showAll ? testimonials.length : 6;
 
             list.innerHTML = testimonials.slice(0, visibleCount).map(t => `
-                                                                <div class="testimonial-card">
-                                                                    <div class="testimonial-header">
-                                                                        <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
-                                                                        <div class="testimonial-info">
-                                                                            <h4>${t.name}</h4>
-                                                                            <p>• ${t.location}</p>
+                                                                    <div class="testimonial-card">
+                                                                        <div class="testimonial-header">
+                                                                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                                                                            <div class="testimonial-info">
+                                                                                <h4>${t.name}</h4>
+                                                                                <p>• ${t.location}</p>
+                                                                            </div>
                                                                         </div>
+                                                                        <div class="stars">
+                                                                            <span class="star">★</span>
+                                                                            <span class="star">★</span>
+                                                                            <span class="star">★</span>
+                                                                            <span class="star">★</span>
+                                                                            <span class="star">★</span>
+                                                                        </div>
+                                                                        <p class="testimonial-text">"${t.text}"</p>
                                                                     </div>
-                                                                    <div class="stars">
-                                                                        <span class="star">★</span>
-                                                                        <span class="star">★</span>
-                                                                        <span class="star">★</span>
-                                                                        <span class="star">★</span>
-                                                                        <span class="star">★</span>
-                                                                    </div>
-                                                                    <p class="testimonial-text">"${t.text}"</p>
-                                                                </div>
-                                                            `).join('');
+                                                                `).join('');
 
             const btn = document.getElementById('show-more-btn');
             if (showAll) {
@@ -1125,33 +1172,55 @@
     <!-- Video Autoplay Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Seleciona o container do vídeo e o elemento de vídeo
-            const videoContainer = document.querySelector('.video-container');
-            const video = videoContainer ? videoContainer.querySelector('video') : null;
+            const videoContainer = document.getElementById('videoContainer');
+            const video = document.getElementById('mainVideo');
+            const playOverlay = document.getElementById('playOverlay');
 
-            if (video) {
-                // Configura o Intersection Observer
+            if (video && videoContainer) {
+                // Captura o último frame do vídeo como poster
+                video.addEventListener('loadedmetadata', () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    const ctx = canvas.getContext('2d');
+
+                    video.currentTime = Math.max(0, video.duration - 0.1);
+
+                    video.addEventListener('seeked', () => {
+                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        const posterUrl = canvas.toDataURL('image/jpeg', 0.9);
+                        video.poster = posterUrl;
+                        video.currentTime = 0;
+                    }, { once: true });
+                }, { once: true });
+
+                // Mostra/esconde o overlay de play
+                video.addEventListener('play', () => {
+                    if (playOverlay) playOverlay.style.opacity = '0';
+                    videoContainer.classList.add('playing');
+                });
+
+                video.addEventListener('pause', () => {
+                    if (playOverlay) playOverlay.style.opacity = '1';
+                    videoContainer.classList.remove('playing');
+                });
+
+                // Configura o Intersection Observer para autoplay
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        // Verifica se o elemento está visível (pelo menos 10% dele)
                         if (entry.isIntersecting) {
-                            // Tenta iniciar a reprodução do vídeo
                             video.play().catch(error => {
-                                // Captura e loga erros de autoplay (comum em navegadores)
                                 console.log('Autoplay bloqueado ou falhou:', error);
-                                // Se o autoplay falhar, o usuário terá que clicar no botão de play padrão
                             });
-                            // Para de observar depois que o vídeo tenta iniciar
                             observer.unobserve(videoContainer);
                         }
                     });
                 }, {
-                    root: null, // Observa em relação à viewport
+                    root: null,
                     rootMargin: '0px',
-                    threshold: 0.1 // 10% do elemento visível
+                    threshold: 0.1
                 });
 
-                // Começa a observar o container do vídeo
                 observer.observe(videoContainer);
             }
         });
