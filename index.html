@@ -88,19 +88,66 @@
                     color: #fcd34d;
                 }
 
+        /* MODIFIED CTA STYLES */
+        /* New Pulse Keyframes for CTAs */
+        @keyframes cta-pulse-red {
+            0% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); /* Red 500 */
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+            }
+        }
+
+        @keyframes cta-pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); /* Green 500 */
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        @keyframes cta-pulse-orange {
+            0% {
+                box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.7); /* Orange 600 */
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(234, 88, 12, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
+            }
+        }
+
+        /* Header CTA - Vibrant Green */
         .cta-header {
-            background-color: #ea580c;
+            background-color: #10b981; /* Tailwind Green 500 */
             color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 0.5rem;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.2s;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); /* Green shadow for pulse */
+            transition: all 0.3s ease-in-out;
+            animation: cta-pulse-green 2s infinite;
         }
 
             .cta-header:hover {
-                background-color: #c2410c;
+                background-color: #059669; /* Tailwind Green 600 */
+                transform: scale(1.05);
             }
 
         @media (min-width: 768px) {
@@ -162,7 +209,7 @@
         }
 
             .ebook-cover-container:hover {
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 0 20px rgba(234, 88, 12, 0.5);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 0 20px rgba(234, 88, 12, 0.8);
                 border-color: rgba(234, 88, 12, 0.8);
             }
 
@@ -271,9 +318,11 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
+        /* Hero CTA - Orange (Kept primary color, added pulse) */
         .btn-primary {
-            background-color: #ea580c;
+            background-color: #ea580c; /* Orange 600 */
             color: white;
+            animation: cta-pulse-orange 2s infinite;
         }
 
             .btn-primary:hover {
@@ -359,98 +408,128 @@
             color: #111827;
         }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 968px) {
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .benefit-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-            padding: 2rem;
+        /* Novo Layout de Benefícios - Lista Compacta */
+        /* Novo Layout de Benefícios - Lista Compacta */
+        .benefits-list-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* Espaçamento entre os itens */
+            padding: 1rem;
+            background-color: white; /* Fundo branco para a lista */
             border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid #ea580c;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            /* Efeito de Brilho Sutil (Glow) */
+            box-shadow: 0 0 15px rgba(21, 128, 61, 0.3), 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Sombra verde sutil + sombra padrão */
+            transition: box-shadow 0.3s ease-in-out;
         }
 
-            .benefit-card::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100px;
-                height: 100px;
-                background: radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(30%, -30%);
+            .benefits-list-compact:hover {
+                box-shadow: 0 0 25px rgba(21, 128, 61, 0.5), 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Brilho mais intenso no hover */
             }
 
-            .benefit-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-                border-left-color: #15803d;
+        .benefit-item-compact {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f3f4f6; /* Linha divisória suave */
+        }
+
+            .benefit-item-compact:last-child {
+                border-bottom: none;
             }
 
-        .benefit-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
+        .benefit-icon-compact {
+            font-size: 1.5rem; /* Ícone menor */
+            color: #15803d; /* Cor verde para destaque */
+            flex-shrink: 0;
+            line-height: 1.5;
         }
 
-        .benefit-card h3 {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: #111827;
-            margin-bottom: 0.75rem;
-            position: relative;
-            z-index: 1;
+        .benefit-item-compact p {
+            margin: 0;
+            color: #1f2937;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
-        .benefit-card p {
-            color: #4b5563;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
+        .benefit-item-compact strong {
+            color: #065f46; /* Cor mais escura para o título do benefício */
         }
 
-        .benefit-value {
-            display: inline-block;
-            background-color: #ea580c;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.25rem;
-            font-size: 0.8rem;
+        .benefit-value-compact {
+            display: block;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0;
+            color: #ea580c; /* Cor laranja para o valor */
+            margin-top: 0.25rem;
+        }
+
+        /* Layout de Duas Colunas (Ebook/CTA + Benefícios) */
+        .main-split-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #fef3c7 100%); /* Mantém o fundo da seção de benefícios */
+            padding: 5rem 1rem;
+        }
+
+        .main-split-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column; /* Padrão vertical para mobile */
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .main-split-container {
+                flex-direction: row; /* Horizontal para desktop */
+                align-items: flex-start;
+            }
+
+            .ebook-cta-column {
+                flex: 1; /* Ocupa metade do espaço */
+                max-width: 50%;
+                text-align: center;
+            }
+
+            .benefits {
+                flex: 1; /* Ocupa a outra metade */
+                padding: 0; /* Remove o padding da seção benefits, pois já está no container pai */
+                background: none; /* Remove o background duplicado */
+            }
+
+            .benefits-container {
+                padding: 0; /* Remove o padding duplicado */
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr); /* Reduz para 2 colunas para caber ao lado */
+            }
+        }
+
+        /* Ajustes para o bloco do Ebook/CTA */
+        .ebook-cta-column h1 {
+            font-size: 2.5rem; /* Reduz o tamanho do H1 para caber melhor na coluna */
+            margin-top: 0;
+        }
+
+        .ebook-cta-column .ebook-cover-container {
+            max-width: 20rem; /* Reduz o tamanho da capa para caber na coluna */
+        }
+
+        .ebook-cta-column .hero-text {
+            max-width: 100%;
         }
 
         /* Testimonials Section */
         .testimonials {
-            padding: 5rem 1rem;
+            padding: 3rem 1rem; /* Reduz o padding da seção */
+            background-color: #f9fafb;
         }
 
         .testimonials-container {
-            max-width: 56rem;
+            max-width: 1280px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .testimonials-header {
@@ -458,39 +537,57 @@
             margin-bottom: 3rem;
         }
 
-            .testimonials-header h2 {
-                margin-bottom: 1rem;
-            }
-
             .testimonials-header p {
-                color: #4b5563;
+                color: #6b7280;
                 font-size: 1.125rem;
             }
 
         .testimonials-list {
-            display: grid;
-            grid-template-columns: 1fr; /* Default for mobile */
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            display: flex; /* Altera para flexbox */
+            overflow-x: auto; /* Habilita o scroll horizontal */
+            /* scroll-snap-type: x mandatory; */ /* Para um carrossel mais suave */
+            gap: 1.5rem; /* Espaçamento menor entre os cards */
+            margin-bottom: 1rem;
+            padding-bottom: 1rem; /* Espaço para a barra de rolagem */
+            -webkit-overflow-scrolling: touch; /* Melhor rolagem em iOS */
         }
 
-        @media (min-width: 768px) {
-            .testimonials-list {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop/tablet */
+        .testimonial-card {
+            flex: 0 0 85%; /* Ocupa 85% da largura do contêiner */
+            max-width: 300px; /* Limite de largura para o card */
+            /* scroll-snap-align: start; */
+            /* Estilos para reduzir o tamanho vertical */
+            background-color: white;
+            padding: 1rem; /* Reduz o padding */
+            border-radius: 0.5rem; /* Reduz o border-radius */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid #ea580c; /* Reduz a espessura da borda */
+            transition: transform 0.3s;
+        }
+
+        @media (min-width: 640px) {
+            .testimonial-card {
+                flex: 0 0 45%; /* Ocupa 45% da largura em telas maiores */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                flex: 0 0 30%; /* Ocupa 30% da largura em telas grandes */
             }
         }
 
         .testimonial-card {
             background-color: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
             padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ea580c;
+            transition: transform 0.3s;
         }
 
             .testimonial-card:hover {
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                transform: translateY(-3px);
             }
 
         .testimonial-header {
@@ -501,8 +598,8 @@
         }
 
         .testimonial-avatar {
-            width: 56px;
-            height: 56px;
+            width: 48px; /* Reduz o tamanho do avatar */
+            height: 48px;
             border-radius: 50%;
             flex-shrink: 0;
         }
@@ -532,7 +629,8 @@
         .testimonial-text {
             color: #374151;
             font-style: italic;
-            line-height: 1.6;
+            line-height: 1.4; /* Reduz o line-height */
+            font-size: 0.95rem; /* Reduz o tamanho da fonte */
         }
 
         .show-more-btn {
@@ -622,9 +720,10 @@
                 font-weight: bold;
             }
 
+        /* Main CTA - Vibrant Red/Pink, added pulse */
         .btn-cta {
-            background-color: white;
-            color: #15803d;
+            background-color: #ef4444; /* Tailwind Red 500 */
+            color: white;
             padding: 1.5rem 2.5rem;
             font-size: 1.25rem;
             border-radius: 0.5rem;
@@ -632,13 +731,15 @@
             text-decoration: none;
             border: none;
             cursor: pointer;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.2s;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); /* Red shadow for pulse */
+            transition: all 0.3s ease-in-out;
             margin-bottom: 1.5rem;
+            animation: cta-pulse-red 2s infinite;
         }
 
             .btn-cta:hover {
-                background-color: #f3f4f6;
+                background-color: #dc2626; /* Tailwind Red 600 */
+                transform: scale(1.05);
             }
 
         .guarantee-box {
@@ -696,6 +797,59 @@
             .guarantee-text {
                 font-size: 0.9rem;
             }
+        }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            padding: 5rem 1rem;
+            background-color: #ffffff;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            transition: color 0.3s;
+        }
+
+            .faq-question:hover {
+                color: #ea580c;
+            }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            color: #4b5563;
+            padding-top: 0;
+        }
+
+            .faq-answer.open {
+                max-height: 500px; /* Ajuste conforme necessário */
+                padding-top: 1rem;
+            }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
         }
 
         /* Footer */
@@ -810,7 +964,7 @@
                 padding: 2rem 1rem;
             }
 
-            .benefits, .testimonials, .cta-section {
+            .benefits, .testimonials, .cta-section, .faq-section {
                 padding: 3rem 1rem;
             }
 
@@ -836,9 +990,9 @@
             <nav>
                 <a href="#beneficios">Benefícios</a>
                 <a href="#depoimentos">Depoimentos</a>
-                <a href="https://pay.kiwify.com.br/t4bvM9I">Comprar</a>
+                <a href="#cta">Acesso</a>
             </nav>
-            <a href="https://pay.kiwify.com.br/t4bvM9I" class="cta-header">Acessar Agora</a>
+            <a href="https://pay.kiwify.com.br/t4bvM9I" class="cta-header">QUERO SALVAR MINHAS GALINHAS AGORA!</a>
         </div>
     </header>
 
@@ -862,80 +1016,76 @@
                 </div>
             </div>
 
-            <h1> <strong style="color: #FF0000;"> SE TORNE UM CRIADOR DE ELITE</strong> </h1>
-
-            <!-- Video Section -->
-            <div class="ebook-cover-container">
-                <img src="capa.png" alt="Capa do E-book O Segredo das Doenças Avícolas" class="ebook-cover">
-            </div>
-
-
-            <p class="hero-text">
-                Guia completo com mais de 10 anos de experiência prática reunido. Identifique, trate e previna mais de 11 doenças avícolas. Sem complicações, Sem enrolaçao.
-            </p>
-
-            <div class="button-group">
-                <a href="https://pay.kiwify.com.br/t4bvM9I" class="btn btn-primary">
-                    Acessar Agora - R$ 84,90
-                </a>
-            </div>
-
-            <!-- Urgency Badges -->
-            <div class="urgency-container">
-                <div class="urgency-box timer">
-                    <div class="urgency-label">
-                        <span id="timer">23:45:00</span>
-                    </div>
-                    <p class="urgency-subtext">Preço sobe em breve</p>
-                </div>
-
-            </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits" id="beneficios">
-        <div class="benefits-container">
-            <h2>O que você vai aprender</h2>
+    <!-- Novo Contêiner de Duas Colunas -->
+    <section class="main-split-section">
+        <div class="main-split-container">
+            <!-- Coluna da Esquerda: Ebook/CTA -->
+            <div class="ebook-cta-column">
+                <h1> <strong style="color: #FF0000;"> SE TORNE UM CRIADOR DE ELITE</strong> </h1>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Identificar doenças em 5 minutos</h3>
-                    <p>Tabelas visuais e sintomas claros para diagnóstico rápido e preciso do seu plantel</p>
-                    <div class="benefit-value">ECONOMIA: Até 10h/mês em pesquisa</div>
+                <!-- Video Section -->
+                <div class="ebook-cover-container">
+                    <img src="capa.png" alt="Capa do E-book O Segredo das Doenças Avícolas" class="ebook-cover">
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💊</div>
-                    <h3>Tratar com confiança</h3>
-                    <p>Protocolos testados na prática por mais de 10 anos com taxa de sucesso comprovada, Medicamentos que realmente funcionam</p>
-                    <div class="benefit-value">RESULTADO: 95% de efetividade</div>
+
+
+                <p class="hero-text">
+                    Guia completo com mais de 10 anos de experiência prática reunido. Identifique, trate e previna mais de 11 doenças avícolas. Sem complicações, Sem enrolaçao.
+                </p>
+
+                <div class="button-group">
+                    <a href="https://pay.kiwify.com.br/t4bvM9I" class="btn btn-primary">
+                        QUERO SALVAR MINHAS GALINHAS AGORA!
+                    </a>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🛡️</div>
-                    <h3>Prevenir perdas</h3>
-                    <p>Manejo sanitário passo a passo para manter seu plantel 100% saudável</p>
-                    <div class="benefit-value">PROTEÇÃO: Zero perdas</div>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Economizar dinheiro</h3>
-                    <p>Reduz custos com veterinário e medicamentos que nao funcionam em até 70% ao ano</p>
-                    <div class="benefit-value">ECONOMIA: R$ 2.000+/ano</div>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Aumentar produção</h3>
-                    <p>Galinhas saudáveis produzem mais ovos e de melhor qualidade</p>
-                    <div class="benefit-value">AUMENTO: +40% de produção</div>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📋</div>
-                    <h3>Ter referência sempre</h3>
-                    <p>Checklist e calendário de vacinação para nunca esquecer nada importante</p>
-                    <div class="benefit-value">PRATICIDADE: Acesso 24/7</div>
+
+                <!-- Urgency Badges -->
+                <div class="urgency-container">
+                    <div class="urgency-box timer">
+                        <div class="urgency-label">
+                            <span id="timer">23:45:00</span>
+                        </div>
+                        <p class="urgency-subtext">Preço sobe em breve</p>
+                    </div>
+
                 </div>
             </div>
+            <!-- Coluna da Direita: Benefícios -->
+            <section class="benefits" id="beneficios">
+                <div class="benefits-container">
+                    <h2>O que você vai aprender</h2>
+                    </div>
+
+                    <div class="benefits-list-compact">
+                        <div class="benefit-item-compact">
+                            <div class="benefit-icon-compact">⚡</div>
+                            <p><strong>Identificar doenças em 5 minutos:</strong> Tabelas visuais e sintomas claros para diagnóstico rápido e preciso do seu plantel. <span class="benefit-value-compact">ECONOMIA: Até 10h/mês em pesquisa</span></p>
+                        </div>
+                        <div class="benefit-item-compact">
+                            <div class="benefit-icon-compact">💊</div>
+                            <p><strong>Tratar com confiança:</strong> Protocolos testados na prática por mais de 10 anos com taxa de sucesso comprovada. <span class="benefit-value-compact">RESULTADO: 95% de efetividade</span></p>
+                        </div>
+                        <div class="benefit-item-compact">
+                            <div class="benefit-icon-compact">🛡️</div>
+                            <p><strong>Prevenir perdas:</strong> Manejo sanitário passo a passo para manter seu plantel 100% saudável. <span class="benefit-value-compact">PROTEÇÃO: Zero perdas</span></p>
+                        </div>
+                        <div class="benefit-item-compact">
+                            <div class="benefit-icon-compact">💰</div>
+                            <p><strong>Economizar dinheiro:</strong> Reduz custos com veterinário e medicamentos que não funcionam em até 70% ao ano. <span class="benefit-value-compact">ECONOMIA: R$ 2.000+/ano</span></p>
+                        </div>
+                        <div class="benefit-item-compact">
+                            <div class="benefit-icon-compact">📈</div>
+                            <p><strong>Aumentar produção:</strong> Galinhas saudáveis produzem mais ovos e de melhor qualidade. <span class="benefit-value-compact">AUMENTO: +40% de produção</span></p>
+                        </div>
+                        <div class="benefit-item-compact">
+                            <div class="benefit-icon-compact">📋</div>
+                            <p><strong>Ter referência sempre:</strong> Checklist e calendário de vacinação para nunca esquecer nada importante. <span class="benefit-value-compact">PRATICIDADE: Acesso 24/7</span></p>
+                        </div>
+                    </div>
+            </section>
         </div>
     </section>
 
@@ -951,9 +1101,7 @@
                 <!-- Testimonials will be inserted here by JavaScript -->
             </div>
 
-            <button class="show-more-btn" id="show-more-btn" onclick="showMoreTestimonials()">
-                Ver mais depoimentos ▼
-            </button>
+            <!-- Botão "Ver mais" removido para o carrossel horizontal -->
         </div>
     </section>
 
@@ -978,7 +1126,7 @@
             </div>
 
             <a href="https://pay.kiwify.com.br/t4bvM9I" class="btn-cta">
-                Acessar Agora - R$ 84,90
+                QUERO SALVAR MINHAS GALINHAS AGORA!
             </a>
 
             <div class="guarantee-box">
@@ -988,6 +1136,74 @@
                     <p class="guarantee-text">Se você não ficar 100% satisfeito com o conteúdo, devolvemos todo o seu dinheiro. Sem perguntas, sem burocracia. Você não tem nada a perder!</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (NEW) -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <h2>Perguntas Frequentes</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>O acesso ao guia é vitalício?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! Ao adquirir o guia "O Segredo das Doenças Avícolas", você terá acesso vitalício a todo o conteúdo, incluindo futuras atualizações sem custo adicional.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>O guia serve para qualquer tipo de ave (galinhas, patos, codornas)?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>O foco principal do guia são as doenças avícolas mais comuns em galinhas, mas os princípios de prevenção, identificação e muitos dos protocolos de tratamento são aplicáveis a outras aves de criação, como patos, gansos e codornas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Quais são as formas de pagamento?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Aceitamos diversas formas de pagamento através da plataforma Kiwify, incluindo Cartão de Crédito (com parcelamento), Pix e Boleto Bancário. O acesso é liberado imediatamente após a confirmação do pagamento (Pix e Cartão).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>E se eu não gostar do conteúdo?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oferecemos uma **Garantia Incondicional de 7 Dias**. Se por qualquer motivo você não estiver 100% satisfeito, basta solicitar o reembolso dentro deste período e devolveremos 100% do seu dinheiro, sem perguntas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Preciso de internet para acessar o guia?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Para baixar o guia inicialmente, sim. No entanto, o guia é um e-book (PDF) que você pode baixar e salvar em seu celular ou computador, permitindo o acesso offline a qualquer momento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Tenho suporte ao comprar o produto?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! Ao realizar a compra e fazer o cadastro, em até 12 horas você recebe no seu WhatsApp uma mensagem de um de nossos colaboradores, para tratar dúvidas e você tem a opção de participar do grupo de membros.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1088,43 +1304,29 @@
             }
         ];
 
-        let showAll = false;
-
         function renderTestimonials() {
             const list = document.getElementById('testimonials-list');
-            const visibleCount = showAll ? testimonials.length : 6;
-
-            list.innerHTML = testimonials.slice(0, visibleCount).map(t => `
-                                                                    <div class="testimonial-card">
-                                                                        <div class="testimonial-header">
-                                                                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
-                                                                            <div class="testimonial-info">
-                                                                                <h4>${t.name}</h4>
-                                                                                <p>• ${t.location}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="stars">
-                                                                            <span class="star">★</span>
-                                                                            <span class="star">★</span>
-                                                                            <span class="star">★</span>
-                                                                            <span class="star">★</span>
-                                                                            <span class="star">★</span>
-                                                                        </div>
-                                                                        <p class="testimonial-text">"${t.text}"</p>
-                                                                    </div>
-                                                                `).join('');
-
-            const btn = document.getElementById('show-more-btn');
-            if (showAll) {
-                btn.style.display = 'none';
-            } else {
-                btn.style.display = 'block';
-            }
-        }
-
-        function showMoreTestimonials() {
-            showAll = true;
-            renderTestimonials();
+            // No carrossel, todos os depoimentos são renderizados para permitir o scroll
+            const cardsHtml = testimonials.map(t => `
+                                                                                <div class="testimonial-card">
+                                                                                    <div class="testimonial-header">
+                                                                                        <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                                                                                        <div class="testimonial-info">
+                                                                                            <h4>${t.name}</h4>
+                                                                                            <p>• ${t.location}</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="stars">
+                                                                                        <span class="star">★</span>
+                                                                                        <span class="star">★</span>
+                                                                                        <span class="star">★</span>
+                                                                                        <span class="star">★</span>
+                                                                                        <span class="star">★</span>
+                                                                                    </div>
+                                                                                    <p class="testimonial-text">"${t.text}"</p>
+                                                                                </div>
+                                                                                `).join('');
+            list.innerHTML = cardsHtml + cardsHtml; // Duplica o conteúdo para o loop infinito
         }
 
         // Timer countdown
@@ -1154,9 +1356,66 @@
             }, 1000);
         }
 
+        // FAQ Accordion Script (NEW)
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Fecha todos os outros
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('open');
+                        }
+                    });
+
+                    // Abre ou fecha o item clicado
+                    if (isActive) {
+                        item.classList.remove('active');
+                        answer.classList.remove('open');
+                    } else {
+                        item.classList.add('active');
+                        answer.classList.add('open');
+                    }
+                });
+            });
+        });
+
         // Initialize
         renderTestimonials();
         updateTimer();
+
+        // Automatic Carousel Scroll (NEW)
+        function autoScrollTestimonials() {
+            const list = document.getElementById('testimonials-list');
+            if (!list) return;
+
+            let scrollAmount = 0;
+            const scrollStep = 1; // Velocidade de rolagem (pixels por intervalo)
+            const scrollInterval = 20; // Intervalo de tempo (ms)
+
+            setInterval(() => {
+                // Lógica de loop infinito:
+                // Se a rolagem ultrapassar a metade do conteúdo (o final do primeiro conjunto de cards),
+                // reseta instantaneamente para o início (sem animação) para criar o loop.
+                const originalContentWidth = list.scrollWidth / 2;
+                if (list.scrollLeft >= originalContentWidth) {
+                    list.scrollLeft = 0; // Salto instantâneo para o início
+                } else {
+                    // Continua a rolagem
+                    list.scrollLeft += scrollStep;
+                }
+            }, scrollInterval);
+        }
+
+        // Inicializa o carrossel automático após a renderização
+        autoScrollTestimonials();
     </script>
     <!-- TikTok Pixel Code -->
     <script>
@@ -1228,4 +1487,3 @@
     <!-- End Video Autoplay Script -->
 </body>
 </html>
->
