@@ -950,6 +950,32 @@
             border: none;
         }
 
+        /* iOS and Android specific fixes (Removed -webkit-user-select and -webkit-touch-callout for GitHub compatibility) */
+        @supports (-webkit-touch-callout: none) {
+            .btn-cta {
+                -webkit-appearance: none;
+                appearance: none;
+                border-radius: 0.5rem;
+            }
+
+            input, textarea, select {
+                font-size: 16px;
+            }
+        }
+
+        @media (pointer: coarse) {
+            .btn-cta {
+                min-height: 48px;
+                min-width: 48px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
@@ -975,6 +1001,74 @@
                 .benefit-card h3 {
                     font-size: 1.1rem;
                 }
+            }
+
+            .btn-cta {
+                padding: 1rem 1.5rem; /* Reduz o padding */
+                font-size: 1.1rem; /* Reduz o tamanho da fonte */
+                line-height: 1.2; /* Garante que o texto se ajuste melhor */
+                width: 100%; /* Ocupa a largura total */
+                max-width: 100%; /* Sem limite de largura */
+                word-wrap: break-word; /* Quebra palavras se necessário */
+                white-space: normal; /* Permite quebra de linha */
+                display: block; /* Garante comportamento de bloco */
+            }
+        
+
+        /* Extra small devices (< 480px) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .hero {
+                padding: 1.5rem 1rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+
+            .btn-cta {
+                padding: 0.875rem 1.25rem;
+                font-size: 1rem;
+                line-height: 1.3;
+                width: 100%;
+                max-width: 100%;
+                word-wrap: break-word;
+                white-space: normal;
+                display: block;
+            }
+
+            .pricing-box {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .price {
+                font-size: 2rem;
+            }
+
+            .guarantee-box {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .guarantee-icon {
+                font-size: 2.5rem;
+            }
+
+            .guarantee-title {
+                font-size: 1.1rem;
+            }
+
+            .guarantee-text {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
