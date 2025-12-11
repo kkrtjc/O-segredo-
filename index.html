@@ -45,10 +45,67 @@
             line-height: 1.6;
         }
 
+        /* Floating Testimonials Bar - NOVO ESTILO */
+        .floating-testimonials-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px; /* Altura da barra fina */
+            background-color: #fef3c7; /* Fundo claro */
+            color: #78350f; /* Texto escuro */
+            z-index: 100; /* Acima de tudo */
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .floating-testimonials-list {
+            display: inline-flex;
+            height: 100%;
+            align-items: center;
+            animation: marquee 180s linear infinite; /* Rolagem mais rápida (20s) */
+            /* min-width: 100%; Removido para que a largura seja determinada pelo conteúdo */
+        }
+
+        .floating-testimonial-item {
+            padding: 0 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 30px; /* Centraliza o texto verticalmente */
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .floating-testimonial-avatar {
+            width: 20px; /* Tamanho do avatar */
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            object-fit: cover;
+        }
+
+        .floating-testimonial-item strong {
+            color: #ea580c; /* Destaca o nome */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%); /* Começa visível na tela */
+            }
+
+            100% {
+                transform: translateX(-100%); /* Rola o equivalente a um conjunto de depoimentos (1/2 do total) */
+            }
+        }
+
         /* Header */
         header {
             position: sticky;
-            top: 0;
+            top: 30px; /* Offset pela altura da barra flutuante */
             z-index: 50;
             background: linear-gradient(to right, #78350f, #166534);
             border-bottom: 4px solid #ea580c;
@@ -353,152 +410,100 @@
             background-color: white;
             border: 2px solid;
             border-radius: 0.5rem;
-            padding: 1rem;
         }
 
             .urgency-box.timer {
-                border-color: #fed7aa;
-            }
-
-            .urgency-box.copies {
-                border-color: #22c55e;
+                border-color: #ea580c;
+                color: #ea580c;
             }
 
         .urgency-label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            font-size: 1.125rem;
-        }
-
-        .urgency-box.timer .urgency-label {
-            color: #ea580c;
-        }
-
-        .urgency-box.copies .urgency-label {
-            color: #15803d;
         }
 
         .urgency-subtext {
             font-size: 0.875rem;
             color: #6b7280;
-            text-align: center;
         }
 
-        /* Benefits Section - IMPROVED */
-        .benefits {
-            background: linear-gradient(135deg, #f0fdf4 0%, #fef3c7 100%);
-            padding: 5rem 1rem;
-        }
-
-        .benefits-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        h2 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: #111827;
-        }
-
-        /* Novo Layout de Benefícios - Lista Compacta */
-        /* Novo Layout de Benefícios - Lista Compacta */
-        .benefits-list-compact {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem; /* Espaçamento entre os itens */
-            padding: 1rem;
-            background-color: white; /* Fundo branco para a lista */
-            border-radius: 1rem;
-            /* Efeito de Brilho Sutil (Glow) */
-            box-shadow: 0 0 15px rgba(21, 128, 61, 0.3), 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Sombra verde sutil + sombra padrão */
-            transition: box-shadow 0.3s ease-in-out;
-        }
-
-            .benefits-list-compact:hover {
-                box-shadow: 0 0 25px rgba(21, 128, 61, 0.5), 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Brilho mais intenso no hover */
-            }
-
-        .benefit-item-compact {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f3f4f6; /* Linha divisória suave */
-        }
-
-            .benefit-item-compact:last-child {
-                border-bottom: none;
-            }
-
-        .benefit-icon-compact {
-            font-size: 1.5rem; /* Ícone menor */
-            color: #15803d; /* Cor verde para destaque */
-            flex-shrink: 0;
-            line-height: 1.5;
-        }
-
-        .benefit-item-compact p {
-            margin: 0;
-            color: #1f2937;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .benefit-item-compact strong {
-            color: #065f46; /* Cor mais escura para o título do benefício */
-        }
-
-        .benefit-value-compact {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #ea580c; /* Cor laranja para o valor */
-            margin-top: 0.25rem;
-        }
-
-        /* Layout de Duas Colunas (Ebook/CTA + Benefícios) */
+        /* Main Split Section */
         .main-split-section {
-            background: linear-gradient(135deg, #f0fdf4 0%, #fef3c7 100%); /* Mantém o fundo da seção de benefícios */
-            padding: 5rem 1rem;
+            padding: 4rem 1rem;
+            background-color: #f9fafb;
         }
 
         .main-split-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1rem;
             display: flex;
-            flex-direction: column; /* Padrão vertical para mobile */
+            flex-direction: column;
             gap: 3rem;
         }
 
         @media (min-width: 1024px) {
             .main-split-container {
-                flex-direction: row; /* Horizontal para desktop */
+                flex-direction: row;
                 align-items: flex-start;
             }
+        }
 
-            .ebook-cta-column {
-                flex: 1; /* Ocupa metade do espaço */
-                max-width: 50%;
-                text-align: center;
-            }
+        .ebook-cta-column {
+            flex: 1;
+            text-align: center;
+        }
 
-            .benefits {
-                flex: 1; /* Ocupa a outra metade */
-                padding: 0; /* Remove o padding da seção benefits, pois já está no container pai */
-                background: none; /* Remove o background duplicado */
-            }
+        .benefits {
+            flex: 1;
+            padding: 0; /* Remove padding para se alinhar com a coluna */
+            background-color: transparent;
+        }
 
-            .benefits-container {
-                padding: 0; /* Remove o padding duplicado */
+        .benefits-container {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .benefits-list-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .benefit-item-compact {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #10b981;
+        }
+
+        .benefit-icon-compact {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item-compact p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .benefit-value-compact {
+            display: block;
+            font-size: 0.8rem;
+            color: #ea580c;
+            font-weight: bold;
+            margin-top: 0.25rem;
+        }
+
+        @media (min-width: 1024px) {
+            .main-split-container {
+                flex-direction: row;
+                align-items: flex-start;
             }
 
             .benefits-grid {
@@ -520,138 +525,9 @@
             max-width: 100%;
         }
 
-        /* Testimonials Section */
+        /* Testimonials Section - REMOVIDO E SUBSTITUÍDO PELA BARRA FLUTUANTE */
         .testimonials {
-            padding: 3rem 1rem; /* Reduz o padding da seção */
-            background-color: #f9fafb;
-        }
-
-        .testimonials-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .testimonials-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-            .testimonials-header p {
-                color: #6b7280;
-                font-size: 1.125rem;
-            }
-
-        .testimonials-list {
-            display: flex; /* Altera para flexbox */
-            overflow-x: hidden; /* Desativa a rolagem manual (mouse/toque) */
-            /* scroll-snap-type: x mandatory; */ /* Para um carrossel mais suave */
-            gap: 1.5rem; /* Espaçamento menor entre os cards */
-            margin-bottom: 1rem;
-            padding-bottom: 1rem; /* Espaço para a barra de rolagem */
-            -webkit-overflow-scrolling: touch; /* Melhor rolagem em iOS */
-        }
-
-        .testimonial-card {
-            flex: 0 0 85%; /* Ocupa 85% da largura do contêiner */
-            max-width: 300px; /* Limite de largura para o card */
-            /* scroll-snap-align: start; */
-            /* Estilos para reduzir o tamanho vertical */
-            background-color: white;
-            padding: 1rem; /* Reduz o padding */
-            border-radius: 0.5rem; /* Reduz o border-radius */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-            border-left: 3px solid #ea580c; /* Reduz a espessura da borda */
-            transition: transform 0.3s;
-        }
-
-        @media (min-width: 640px) {
-            .testimonial-card {
-                flex: 0 0 45%; /* Ocupa 45% da largura em telas maiores */
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .testimonial-card {
-                flex: 0 0 30%; /* Ocupa 30% da largura em telas grandes */
-            }
-        }
-
-        .testimonial-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #ea580c;
-            transition: transform 0.3s;
-        }
-
-            .testimonial-card:hover {
-                transform: translateY(-3px);
-            }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-avatar {
-            width: 48px; /* Reduz o tamanho do avatar */
-            height: 48px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .testimonial-info h4 {
-            font-weight: bold;
-            color: #111827;
-            margin-bottom: 0.25rem;
-        }
-
-        .testimonial-info p {
-            font-size: 0.875rem;
-            color: #6b7280;
-        }
-
-        .stars {
-            display: flex;
-            gap: 0.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .star {
-            color: #fbbf24;
-            font-size: 1rem;
-        }
-
-        .testimonial-text {
-            color: #374151;
-            font-style: italic;
-            line-height: 1.4; /* Reduz o line-height */
-            font-size: 0.95rem; /* Reduz o tamanho da fonte */
-        }
-
-        .show-more-btn {
-            display: block;
-            margin: 0 auto;
-            padding: 0.75rem 2rem;
-            border: 2px solid #15803d;
-            color: #15803d;
-            background-color: white;
-            border-radius: 0.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-            .show-more-btn:hover {
-                background-color: #f0fdf4;
-            }
-
-        .hidden {
-            display: none;
+            display: none; /* Esconde a seção antiga de depoimentos */
         }
 
         /* CTA Section */
@@ -860,6 +736,15 @@
             text-align: center;
         }
 
+            footer a {
+                color: #9ca3af;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    color: white;
+                }
+
             footer p {
                 margin-bottom: 0.5rem;
             }
@@ -914,106 +799,79 @@
             }
         }
 
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 1rem;
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
 
-            .modal-header h2 {
-                margin: 0;
-                color: #111827;
-                text-align: left;
-                font-size: 1.5rem;
+            .close-button:hover,
+            .close-button:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
             }
 
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #6b7280;
-            transition: color 0.2s;
-        }
-
-            .close-btn:hover {
-                color: #111827;
-            }
-
-        .modal-video {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 0.5rem;
-            border: none;
-        }
-
-        /* iOS and Android specific fixes (Removed -webkit-user-select and -webkit-touch-callout for GitHub compatibility) */
-        @supports (-webkit-touch-callout: none) {
-            .btn-cta {
-                -webkit-appearance: none;
-                appearance: none;
-                border-radius: 0.5rem;
-            }
-
-            input, textarea, select {
-                font-size: 16px;
-            }
-        }
-
-        @media (pointer: coarse) {
-            .btn-cta {
-                min-height: 48px;
-                min-width: 48px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            * {
-                -webkit-tap-highlight-color: transparent;
-            }
-        }
-
-        /* Responsive */
+        /* Media Queries for Mobile Optimization */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.875rem;
+                font-size: 2.5rem;
             }
 
             .hero {
                 padding: 2rem 1rem;
             }
 
-            .benefits, .testimonials, .cta-section, .faq-section {
+            .main-split-section {
+                padding: 2rem 1rem;
+            }
+
+            .ebook-cta-column h1 {
+                font-size: 1.8rem;
+            }
+
+            .benefits-list-compact {
+                gap: 0.75rem;
+            }
+
+            .benefit-item-compact {
+                padding: 0.75rem;
+            }
+
+            .benefit-icon-compact {
+                font-size: 1.2rem;
+            }
+
+            .benefit-item-compact p {
+                font-size: 0.85rem;
+            }
+
+            .benefit-value-compact {
+                font-size: 0.75rem;
+            }
+
+            .cta-section {
                 padding: 3rem 1rem;
             }
 
-            .benefit-card {
-                padding: 1.5rem;
-            }
-
-                .benefit-card h3 {
-                    font-size: 1.1rem;
+                .cta-section h2 {
+                    font-size: 1.5rem;
                 }
+
+                .cta-section > .cta-content > p {
+                    font-size: 1rem;
+                }
+
+            .price {
+                font-size: 2.5rem;
             }
 
             .btn-cta {
-                padding: 1rem 1.5rem; /* Reduz o padding */
-                font-size: 1.1rem; /* Reduz o tamanho da fonte */
-                line-height: 1.2; /* Garante que o texto se ajuste melhor */
-                width: 100%; /* Ocupa a largura total */
-                max-width: 100%; /* Sem limite de largura */
-                word-wrap: break-word; /* Quebra palavras se necessário */
-                white-space: normal; /* Permite quebra de linha */
-                display: block; /* Garante comportamento de bloco */
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
-        
+        }
 
         /* Extra small devices (< 480px) */
         @media (max-width: 480px) {
@@ -1073,10 +931,20 @@
     </style>
 </head>
 <body>
+
+    <!-- Floating Testimonials Bar - NOVO ESTILO -->
+    <div class="floating-testimonials-bar">
+        <div class="floating-testimonials-list" id="floating-testimonials-list">
+            <!-- Conteúdo gerado pelo JS -->
+        </div>
+    </div>
     <noscript>
         <img height="1" width="1" style="display:none"
              src="https://www.facebook.com/tr?id=824040683676024&ev=PageView&noscript=1" />
     </noscript>
+
+    </div>
+
     <!-- Header -->
     <header>
         <div class="header-container">
@@ -1118,7 +986,13 @@
         <div class="main-split-container">
             <!-- Coluna da Esquerda: Ebook/CTA -->
             <div class="ebook-cta-column">
-                <h1> <strong style="color: #FF0000;"> SE TORNE UM CRIADOR DE ELITE</strong> </h1>
+                <h1 style="text-align: center; font-weight: bold;">
+                    <span style="color: black;">VOCÊ VAI</span>
+                    <span style="color: red;">PARAR DE PERDER DINHEIRO</span>
+                    <span style="color: black;">E COMEÇAR </span>
+                    <span style="color: red;">LUCRAR</span>
+                    <span style="color: black;">COM SUAS GALINHAS</span>
+                </h1>
 
                 <!-- Video Section -->
                 <div class="ebook-cover-container">
@@ -1151,54 +1025,40 @@
             <section class="benefits" id="beneficios">
                 <div class="benefits-container">
                     <h2>O que você vai aprender</h2>
-                    </div>
+                </div>
 
-                    <div class="benefits-list-compact">
-                        <div class="benefit-item-compact">
-                            <div class="benefit-icon-compact">⚡</div>
-                            <p><strong>Identificar doenças em 5 minutos:</strong> Tabelas visuais e sintomas claros para diagnóstico rápido e preciso do seu plantel. <span class="benefit-value-compact">ECONOMIA: Até 10h/mês em pesquisa</span></p>
-                        </div>
-                        <div class="benefit-item-compact">
-                            <div class="benefit-icon-compact">💊</div>
-                            <p><strong>Tratar com confiança:</strong> Protocolos testados na prática por mais de 10 anos com taxa de sucesso comprovada. <span class="benefit-value-compact">RESULTADO: 95% de efetividade</span></p>
-                        </div>
-                        <div class="benefit-item-compact">
-                            <div class="benefit-icon-compact">🛡️</div>
-                            <p><strong>Prevenir perdas:</strong> Manejo sanitário passo a passo para manter seu plantel 100% saudável. <span class="benefit-value-compact">PROTEÇÃO: Zero perdas</span></p>
-                        </div>
-                        <div class="benefit-item-compact">
-                            <div class="benefit-icon-compact">💰</div>
-                            <p><strong>Economizar dinheiro:</strong> Reduz custos com veterinário e medicamentos que não funcionam em até 70% ao ano. <span class="benefit-value-compact">ECONOMIA: R$ 2.000+/ano</span></p>
-                        </div>
-                        <div class="benefit-item-compact">
-                            <div class="benefit-icon-compact">📈</div>
-                            <p><strong>Aumentar produção:</strong> Galinhas saudáveis produzem mais ovos e de melhor qualidade. <span class="benefit-value-compact">AUMENTO: +40% de produção</span></p>
-                        </div>
-                        <div class="benefit-item-compact">
-                            <div class="benefit-icon-compact">📋</div>
-                            <p><strong>Ter referência sempre:</strong> Checklist e calendário de vacinação para nunca esquecer nada importante. <span class="benefit-value-compact">PRATICIDADE: Acesso 24/7</span></p>
-                        </div>
+                <div class="benefits-list-compact">
+                    <div class="benefit-item-compact">
+                        <div class="benefit-icon-compact">⚡</div>
+                        <p><strong>Identificar doenças em 5 minutos:</strong> Tabelas visuais e sintomas claros para diagnóstico rápido e preciso do seu plantel. <span class="benefit-value-compact">ECONOMIA: Até 10h/mês em pesquisa</span></p>
                     </div>
+                    <div class="benefit-item-compact">
+                        <div class="benefit-icon-compact">💊</div>
+                        <p><strong>Tratar com confiança:</strong> Protocolos testados na prática por mais de 10 anos com taxa de sucesso comprovada. <span class="benefit-value-compact">RESULTADO: 95% de efetividade</span></p>
+                    </div>
+                    <div class="benefit-item-compact">
+                        <div class="benefit-icon-compact">🛡️</div>
+                        <p><strong>Prevenir perdas:</strong> Manejo sanitário passo a passo para manter seu plantel 100% saudável. <span class="benefit-value-compact">PROTEÇÃO: Zero perdas</span></p>
+                    </div>
+                    <div class="benefit-item-compact">
+                        <div class="benefit-icon-compact">💰</div>
+                        <p><strong>Economizar dinheiro:</strong> Reduz custos com veterinário e medicamentos que não funcionam em até 70% ao ano. <span class="benefit-value-compact">ECONOMIA: R$ 2.000+/ano</span></p>
+                    </div>
+                    <div class="benefit-item-compact">
+                        <div class="benefit-icon-compact">📈</div>
+                        <p><strong>Aumentar produção:</strong> Galinhas saudáveis produzem mais ovos e de melhor qualidade. <span class="benefit-value-compact">AUMENTO: +40% de produção</span></p>
+                    </div>
+                    <div class="benefit-item-compact">
+                        <div class="benefit-icon-compact">📋</div>
+                        <p><strong>Ter referência sempre:</strong> Checklist e calendário de vacinação para nunca esquecer nada importante. <span class="benefit-value-compact">PRATICIDADE: Acesso 24/7</span></p>
+                    </div>
+                </div>
             </section>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="depoimentos">
-        <div class="testimonials-container">
-            <div class="testimonials-header">
-                <h2>Criadores que transformaram suas vidas</h2>
-                <p>Veja o que outros criadores estão dizendo</p>
-            </div>
-
-            <div class="testimonials-list" id="testimonials-list">
-                <!-- Testimonials will be inserted here by JavaScript -->
-            </div>
-
-            <!-- Botão "Ver mais" removido para o carrossel horizontal -->
-        </div>
-    </section>
-
+    <!-- Testimonials Section - REMOVIDA A SEÇÃO ANTIGA -->
+    <!-- A seção de depoimentos original foi removida para evitar duplicidade, pois será substituída pela barra flutuante -->
     <!-- CTA Section -->
     <section class="cta-section" id="cta">
         <div class="cta-content">
@@ -1308,7 +1168,6 @@
     </footer>
 
 
-
     <script>
         // Testimonials data
         const testimonials = [
@@ -1362,8 +1221,8 @@
             },
             {
                 name: "Ricardo Gomes",
-                location: "Ceará",
-                text: "Prático, direto e funciona. Exatamente o que eu procurava.",
+                location: "Rio Grande do Sul",
+                text: "Simplesmente o melhor guia que já li sobre o assunto. Linguagem clara e direta.",
                 avatar: "images/ricardo.jpeg"
             },
             {
@@ -1398,30 +1257,22 @@
             }
         ];
 
-        function renderTestimonials() {
-            const list = document.getElementById('testimonials-list');
-            // No carrossel, todos os depoimentos são renderizados para permitir o scroll
+        function renderFloatingTestimonials() {
+            const list = document.getElementById('floating-testimonials-list');
+            if (!list) return;
+
+            // Cria o HTML para a barra flutuante (incluindo avatar, texto, nome e localização)
             const cardsHtml = testimonials.map(t => `
-                                                                                <div class="testimonial-card">
-                                                                                    <div class="testimonial-header">
-                                                                                        <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
-                                                                                        <div class="testimonial-info">
-                                                                                            <h4>${t.name}</h4>
-                                                                                            <p>• ${t.location}</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="stars">
-                                                                                        <span class="star">★</span>
-                                                                                        <span class="star">★</span>
-                                                                                        <span class="star">★</span>
-                                                                                        <span class="star">★</span>
-                                                                                        <span class="star">★</span>
-                                                                                    </div>
-                                                                                    <p class="testimonial-text">"${t.text}"</p>
-                                                                                </div>
-                                                                                `).join('');
-            list.innerHTML = cardsHtml + cardsHtml; // Duplica o conteúdo para o loop infinito
+                                <div class="floating-testimonial-item">
+                                    <img src="${t.avatar}" alt="${t.name}" class="floating-testimonial-avatar">
+                                    "${t.text}" - <strong>${t.name}</strong> (${t.location})
+                                </div>
+                            `).join('');
+
+            // Duplica o conteúdo para o loop infinito de rolagem
+            list.innerHTML = cardsHtml + cardsHtml;
         }
+
 
         // Timer countdown
         function updateTimer() {
@@ -1446,11 +1297,14 @@
                 }
 
                 const timerDisplay = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-                document.getElementById('timer').textContent = timerDisplay;
+                const timerElement = document.getElementById('timer');
+                if (timerElement) {
+                    timerElement.textContent = timerDisplay;
+                }
             }, 1000);
         }
 
-        // FAQ Accordion Script (NEW)
+        // FAQ Accordion Script
         document.addEventListener('DOMContentLoaded', () => {
             const faqItems = document.querySelectorAll('.faq-item');
 
@@ -1482,73 +1336,16 @@
         });
 
         // Initialize
-        renderTestimonials();
+        renderFloatingTestimonials();
         updateTimer();
 
-        // Automatic Carousel Scroll (NEW)
-        function autoScrollTestimonials() {
-            const list = document.getElementById('testimonials-list');
-            if (!list) return;
-
-            let scrollAmount = 0;
-            const scrollStep = 1; // Velocidade de rolagem (pixels por intervalo)
-            const scrollInterval = 20; // Intervalo de tempo (ms)
-
-            setInterval(() => {
-                // Lógica de loop infinito:
-                // Se a rolagem ultrapassar a metade do conteúdo (o final do primeiro conjunto de cards),
-                // reseta instantaneamente para o início (sem animação) para criar o loop.
-                const originalContentWidth = list.scrollWidth / 2;
-                if (list.scrollLeft >= originalContentWidth) {
-                    list.scrollLeft = 0; // Salto instantâneo para o início
-                } else {
-                    // Continua a rolagem
-                    list.scrollLeft += scrollStep;
-                }
-            }, scrollInterval);
-        }
-
-        // Inicializa o carrossel automático após a renderização
-        autoScrollTestimonials();
-    </script>
-    <!-- TikTok Pixel Code -->
-    <script>
-        !function (w, d, t) {
-            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "load", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.load = function (e, n) { var i = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq.setup = { pixelCode: e, cna: n }, ttq.load.url = i, ttq.push([e]) };
-            var a = d.createElement("script"); a.type = "text/javascript"; a.async = !0; a.src = ttq.load.url ? ttq.load.url : i;
-            var n = d.getElementsByTagName("script")[0]; n.parentNode.insertBefore(a, n);
-        }(window, document, 'ttq');
-        ttq.load('D4QV5AJC77UDVDQRJRFG');
-        ttq.page();
-    </script>
-    <!-- End TikTok Pixel Code -->
-    <!-- Video Autoplay Script -->
-    <script>
+        // Video Autoplay Script
         document.addEventListener('DOMContentLoaded', () => {
             const videoContainer = document.getElementById('videoContainer');
             const video = document.getElementById('mainVideo');
             const playOverlay = document.getElementById('playOverlay');
 
             if (video && videoContainer) {
-                // Captura o último frame do vídeo como poster (COMENTADO PARA USAR A CAPA MANUAL)
-                /*
-                video.addEventListener('loadedmetadata', () => {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    const ctx = canvas.getContext('2d');
-
-                    video.currentTime = Math.max(0, video.duration - 0.1);
-
-                    video.addEventListener('seeked', () => {
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                        const posterUrl = canvas.toDataURL('image/jpeg', 0.9);
-                        video.poster = posterUrl;
-                        video.currentTime = 0;
-                    }, { once: true });
-                }, { once: true });
-                */
-
                 // Mostra/esconde o overlay de play
                 video.addEventListener('play', () => {
                     if (playOverlay) playOverlay.style.opacity = '0';
@@ -1580,6 +1377,16 @@
             }
         });
     </script>
-    <!-- End Video Autoplay Script -->
+    <!-- TikTok Pixel Code -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "load", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.load = function (e, n) { var i = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq.setup = { pixelCode: e, cna: n }, ttq.load.url = i, ttq.push([e]) };
+            var a = d.createElement("script"); a.type = "text/javascript"; a.async = !0; a.src = ttq.load.url ? ttq.load.url : i;
+            var n = d.getElementsByTagName("script")[0]; n.parentNode.insertBefore(a, n);
+        }(window, document, 'ttq');
+        ttq.load('D4QV5AJC77UDVDQRJRFG');
+        ttq.page();
+    </script>
+    <!-- End TikTok Pixel Code -->
 </body>
 </html>
